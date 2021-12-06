@@ -8,10 +8,17 @@ namespace BMS.Models.Entities
     {
         [Key] 
         public Guid Id { get; set; }
-        public User Borrower { get; set; }
-        public BookItem LoanBook { get; set; }
-        public DateTime LoanDate { get; set; }
-        public DateTime ReturnDate { get; set; }
         
+        [Required]
+        public User Borrower { get; set; }
+        
+        [Required]
+        public BookItem LoanBook { get; set; }
+        
+        [Required]
+        public DateTime LoanDate { get; set; }
+        
+        [Required]
+        public DateTime ReturnDate { get; set; }
     }
 }

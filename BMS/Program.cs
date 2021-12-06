@@ -1,25 +1,45 @@
 using System;
+using System.Text;
 using BMS.Database;
+using BMS.Models.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddDbContextPool<AppDbContext>(options =>
+var services = builder.Services;
+var configuration = builder.Configuration;
+services.AddControllers();
+services.AddEndpointsApiExplorer();
+services.AddSwaggerGen();
+services.AddDbContextPool<AppDbContext>(options =>
 {
-    options.UseMySql(builder.Configuration["ConnectionStrings:MySql"], new MySqlServerVersion(new Version(8, 0, 27)));
+    options.UseMySql(configuration["ConnectionStrings:MySql"], new MySqlServerVersion(new Version(8, 0, 27)));
 });
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        var secretByte = Encoding.UTF8.GetBytes(configuration["Authentication:SecretKey"]);
+        options.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateIssuer = true,
+            ValidIssuer = configuration["Authentication:Issuer"],
+
+            ValidateAudience = true,
+            ValidAudience = configuration["Authentication:Audience"],
+
+            ValidateLifetime = true,
+
+            IssuerSigningKey = new SymmetricSecurityKey(secretByte)
+        };
+    });
 
 var app = builder.Build();
 
