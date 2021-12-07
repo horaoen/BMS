@@ -8,6 +8,7 @@ namespace BMS.Models.Entities
     {
         [Key]
         public Guid Id { get; set; }
-        public bool IsBorrowed { get; set; }
+
+        public bool IsBorrowed { get; set; } = false;
     }
 }

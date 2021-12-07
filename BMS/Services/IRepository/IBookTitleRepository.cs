@@ -11,5 +11,6 @@ namespace BMS.Services.IRepository
         Task<IEnumerable<BookTitle>> GetBookTitles();
         Task<BookTitle?> GetBookTitleByIdAsync(Guid bookTitleId);
         Task AddBookTitleAsync(BookTitle bookTitle);
+        Task<bool> SaveAsync();
     }
 }

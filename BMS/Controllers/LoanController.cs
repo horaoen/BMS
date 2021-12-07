@@ -5,10 +5,10 @@ namespace BMS.Controllers
     public class LoanController : ControllerBase
     {
         
-        [Route("api/[controller]")]
-        public LoanController()
-        {
-            
-        }
+        // [Route("api/[controller]")]
+        // public LoanController()
+        // {
+        //     
+        // }
     }
 }

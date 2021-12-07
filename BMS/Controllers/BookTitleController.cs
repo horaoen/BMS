@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BMS.Dtos;
 using BMS.Models.Entities;
 using BMS.Services.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
 
 namespace BMS.Controllers
 {
@@ -25,6 +27,10 @@ namespace BMS.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// 获取全部书目
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetBookTitles()
         {
@@ -34,9 +40,14 @@ namespace BMS.Controllers
                 return NotFound($"没有书目，请添加");
             }
 
-            return Ok(bookTitlesFromRepo);
+            return Ok(_mapper.Map<IEnumerable<BookTitleDto>>(bookTitlesFromRepo));
         }
 
+        /// <summary>
+        /// 通过书目Id获取书目
+        /// </summary>
+        /// <param name="bookTitleId"></param>
+        /// <returns></returns>
         [HttpGet("{bookTitleId:Guid}", Name = "GetBookTitleById")]
         public async Task<IActionResult> GetBookTitleById(
             [FromRoute] Guid bookTitleId)
@@ -47,16 +58,30 @@ namespace BMS.Controllers
                 return NotFound("没有这本书");
             }
 
-            return Ok(bookTitleFromRepo);
+            return Ok(_mapper.Map<BookTitleDto>(bookTitleFromRepo));
         }
         
+        /// <summary>
+        /// 创建书目
+        /// </summary>
+        /// <param name="bookTitleForCreationDto"></param>
+        /// <returns></returns>
         [HttpPost]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> CreateBookTitle(
             [FromBody] BookTitleForCreationDto bookTitleForCreationDto)
         {
-            var bootTitle = _mapper.Map<BookTitle>(bookTitleForCreationDto);
-            _bookTitleRepository.AddBookTitleAsync(bootTitle);
-            return 
+            var bookTitle = _mapper.Map<BookTitle>(bookTitleForCreationDto);
+            for (var i = 0; i < bookTitleForCreationDto.TotalNumber; i++)
+            {
+                bookTitle.BookItems.Add(new BookItem(){ Id = new Guid() });
+            }
+            await _bookTitleRepository.AddBookTitleAsync(bookTitle);
+            await _bookTitleRepository.SaveAsync();
+            return CreatedAtAction(
+                "GetBookTitleById", 
+                new { bookTitleId = bookTitle.Id }, 
+                _mapper.Map<BookTitleDto>(bookTitle));
         }
     }
 }

@@ -35,6 +35,11 @@ namespace BMS.Controllers
             _signInManager = signInManager;
         }
 
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="registerDto"></param>
+        /// <returns></returns>
         [HttpPost("register")]
         [AllowAnonymous]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
@@ -54,6 +59,11 @@ namespace BMS.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="loginDto"></param>
+        /// <returns></returns>
         [HttpPost("login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)

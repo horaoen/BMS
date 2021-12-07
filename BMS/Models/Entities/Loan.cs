@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
 namespace BMS.Models.Entities
@@ -15,7 +16,7 @@ namespace BMS.Models.Entities
         [Required]
         public BookItem LoanBook { get; set; }
         
-        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime LoanDate { get; set; }
         
         [Required]

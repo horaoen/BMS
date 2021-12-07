@@ -16,10 +16,10 @@ namespace BMS.Models.Entities
         [Required]
         public string Author { get; set; }
         
-        public int TotalNumber { get; set; }
-        public int Revations { get; set; }
-        public int BorrowedNumber { get; set; }
-        
-        public ICollection<BookItem> BookItems { get; set; }
+        public int TotalNumber { get; set; }    
+        public int Revations { get; set; } = 0;
+        public int BorrowedNumber { get; set; } = 0;
+
+        public ICollection<BookItem> BookItems { get; set; } = new List<BookItem>();
     }
 }

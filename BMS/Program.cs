@@ -1,7 +1,12 @@
 using System;
+using System.IO;
+using System.Reflection;
 using System.Text;
 using BMS.Database;
 using BMS.Models.Entities;
+using BMS.Services;
+using BMS.Services.IRepository;
+using BMS.Services.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,13 +47,68 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo()
+    {
+        Title = "BMS.Swagger",
+        Description = "An ASP.NET Core Web API for managing Books",
+        Version = "v1",
+        Contact = new OpenApiContact
+        {
+            Name = "Contact me",
+            Url = new Uri("https://github.com/horaoen")
+        },
+    });
+    
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    options.IncludeXmlComments(xmlPath);
+
+    var securityScheme = new OpenApiSecurityScheme()
+    {
+        Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        Name = "JWT Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
+    };
+    var securityRequirement = new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "bearerAuth"
+                }
+            },
+            new string[] {}
+        }
+    };
+    options.AddSecurityDefinition("bearerAuth", securityScheme);
+    options.AddSecurityRequirement(securityRequirement);
+});
+//DI
+{
+    services.AddTransient<IBookTitleRepository, BookTitleRepository>();
+    services.AddTransient<ILoanRepository, LoanRepository>();
+    services.AddTransient<IReservationRepository, ReservationRepository>();
+    services.AddTransient<ReservationService>();
+}
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "BMS.Swagger");
+    });
 }
 
 app.UseHttpsRedirection();

@@ -4,6 +4,8 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,10 +21,6 @@
         <PackageReference Include="NLog.Web.AspNetCore" Version="5.0.0-preview.3" />
         <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Profiles" />
     </ItemGroup>
 
 </Project>

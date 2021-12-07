@@ -36,5 +36,10 @@ namespace BMS.Services.Repository
         {
             await _context.BookTitles.AddAsync(bookTitle);
         }
+
+        public async Task<bool> SaveAsync()
+        {
+            return (await _context.SaveChangesAsync() >= 0);
+        }
     }
 }
