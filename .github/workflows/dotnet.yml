@@ -34,4 +34,4 @@ jobs:
     with: 
       tag: bms/v1
       push: true
-      context: ./BMS
+      context: ./BMS/
