@@ -37,3 +37,15 @@ jobs:
         tags: horaoen/app:latest 
         push: true
         context: ./BMS
+    - name: deploy
+      uses: appleboy/ssh-action@master
+      with: 
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.HOST_USERNAME }}
+        password: ${ secrets.HOST_PASSWORD }
+        script: |
+          echo "I am $FOO"
+          echo "I am $BAR"
+          echo "sha: $SHA"
+          
+
