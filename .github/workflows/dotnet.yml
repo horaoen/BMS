@@ -22,8 +22,6 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Docker Login
@@ -44,8 +42,9 @@ jobs:
         username: ${{ secrets.HOST_USERNAME }}
         key: ${{ secrets.HOST_SSHKEY }}
         script: |
-          echo "I am FOO"
-          echo "I am BAR"
-          echo "sha: SHA"
+          docker pull horaoen/app:latest
+          docker stop bms-container
+          docker rm bms-container
+          docker run -d --name bms-container -p 8080:80 horaoen/app
           
 
