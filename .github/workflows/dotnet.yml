@@ -31,6 +31,6 @@ jobs:
     - name: Build and Push
       uses: docker/build-push-action@v2
       with: 
-        tag: bms/v1
+        tag: user/app:latest
         push: true
         context: ./BMS
