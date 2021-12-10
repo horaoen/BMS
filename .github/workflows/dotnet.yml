@@ -42,9 +42,10 @@ jobs:
         username: ${{ secrets.HOST_USERNAME }}
         key: ${{ secrets.HOST_SSHKEY }}
         script: |
-          docker pull horaoen/app:latest
           docker stop bms-container
           docker rm bms-container
+          docker rmi horaoen/app:latest
+          docker pull horaoen/app:latest
           docker run -d --name bms-container -p 8080:80 horaoen/app
           
 
