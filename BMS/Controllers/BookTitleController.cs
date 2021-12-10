@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BMS.Dtos;
 using BMS.Models.Entities;
+using BMS.ResourceParameters;
 using BMS.Services.IRepository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -31,9 +32,9 @@ namespace BMS.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> GetBookTitles()
+        public async Task<IActionResult> GetBookTitles([FromQuery] BookTitleResourceParamaters paramaters)
         {
-            var bookTitlesFromRepo = await _bookTitleRepository.GetBookTitles();
+            var bookTitlesFromRepo = await _bookTitleRepository.GetBookTitles(paramaters.Keyword);
             if (!bookTitlesFromRepo.Any())
             {
                 return NotFound($"没有书目，请添加");

@@ -20,9 +20,18 @@ namespace BMS.Services.Repository
             _context = context;
         }
         
-        public async Task<IEnumerable<BookTitle>> GetBookTitles()
+        public async Task<IEnumerable<BookTitle>> GetBookTitles(string keyword)
         {
-            return await _context.BookTitles.Include(bookTitle => bookTitle.BookItems).ToListAsync();
+            IQueryable<BookTitle> res = _context
+                .BookTitles
+                .Include(bookTitle => bookTitle.BookItems);
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                keyword = keyword.Trim();
+                res = res.Where(b => b.Name.Contains(keyword));
+            }
+
+            return await res.ToListAsync();
         }
 
         public async Task<BookTitle?> GetBookTitleByIdAsync(Guid bookTitleId)
