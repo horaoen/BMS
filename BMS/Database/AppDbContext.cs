@@ -18,6 +18,7 @@ namespace BMS.Database
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.SetInitialData();
         }
     }
 }

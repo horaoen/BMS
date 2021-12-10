@@ -10,6 +10,7 @@ using BMS.Services.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,7 +21,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
 var configuration = builder.Configuration;
-services.AddControllers();
+
+services.AddControllers(setupAction =>
+{
+    setupAction.ReturnHttpNotAcceptable = false;
+}).AddXmlDataContractSerializerFormatters();
+
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 services.AddDbContextPool<AppDbContext>(options =>
@@ -102,6 +108,7 @@ services.AddSwaggerGen(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseDataInitializer();
 app.UseSwagger();
 app.UseSwaggerUI(options =>
 {

@@ -1,0 +1,26 @@
+﻿[
+  {
+    "id": "3EA3FA38-6409-2E3E-04F5-C0CC287C5C96",
+    "name": "Vim实用技巧",
+    "author": "Ddrew Neil",
+    "totalNumber": 20
+  },
+  {
+    "id": "1ABC27D5-73DA-9A8C-AB95-5D7AA8A35F1E",
+    "name": "领域驱动设计",
+    "author": "Eric Evans",
+    "totalNumber": 19
+  },
+  {
+    "id": "CBEE1496-FC25-0D42-98CB-827CF70A69D1",
+    "name": "云边有个小卖铺",
+    "author": "张嘉佳",
+    "totalNumber": 90
+  },
+  {
+    "id": "7ABB6E0A-3B6F-C5A1-2BE8-32CDC779A93F",
+    "name": "UML基础与Rose建模案例",
+    "author": "吴建",
+    "totalNumber": 30
+  }
+]

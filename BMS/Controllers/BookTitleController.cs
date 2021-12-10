@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -83,5 +82,13 @@ namespace BMS.Controllers
                 new { bookTitleId = bookTitle.Id }, 
                 _mapper.Map<BookTitleDto>(bookTitle));
         }
+        
+        // /// <summary>
+        // /// 更新书目信息
+        // /// </summary>
+        // /// <returns></returns>
+        // [HttpPatch]
+        // [Authorize(AuthenticationSchemes = "Bearer")]
+        // public async Task<IActionResult> UpdateBookTitle 
     }
 }
