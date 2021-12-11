@@ -34,12 +34,12 @@ namespace BMS.Database
                     new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }) 
                 ?? new List<BookTitle>();
 
-            var bookItems = new List<BookItem>();
+            var bookItems = new List<BookTitleItem>();
             foreach (var bookTitle in bookTitles)
             {
                 for (int i = 0; i < bookTitle.TotalNumber; i++)
                 {
-                    bookItems.Add(new BookItem() 
+                    bookItems.Add(new BookTitleItem() 
                     { 
                         Id = Guid.NewGuid(), 
                         BookTitleId = bookTitle.Id, 
@@ -49,7 +49,7 @@ namespace BMS.Database
             }
             
             modelBuilder.Entity<BookTitle>().HasData(bookTitles);
-            modelBuilder.Entity<BookItem>().HasData(bookItems);
+            modelBuilder.Entity<BookTitleItem>().HasData(bookItems);
             
             #endregion
 

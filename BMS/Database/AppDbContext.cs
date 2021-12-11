@@ -14,7 +14,7 @@ namespace BMS.Database
         public DbSet<BookTitle> BookTitles { get; set; }
         public DbSet<Loan> Loans { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
-        public DbSet<BookItem> BookItems { get; set; }
+        public DbSet<BookTitleItem> BookTitleItems { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

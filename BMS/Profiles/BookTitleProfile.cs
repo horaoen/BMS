@@ -8,12 +8,12 @@ namespace BMS.Profiles
     {
         public BookTitleProfile()
         {
-            CreateMap<BookTitle, BookTitleDto>();
             CreateMap<BookTitleForCreationDto, BookTitle>();
             CreateMap<BookTitle, BookTitleDto>()
                 .ForMember(
                     dest => dest.RemaindBook,
                     opt => opt.MapFrom(src => src.TotalNumber - src.BorrowedNumber));
+            CreateMap<BookTitle, BookTitleForUpdateDto>();
         }
     }
 }

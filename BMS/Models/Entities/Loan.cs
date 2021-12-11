@@ -14,7 +14,7 @@ namespace BMS.Models.Entities
         public User Borrower { get; set; }
         
         [Required]
-        public BookItem LoanBook { get; set; }
+        public BookTitleItem LoanBook { get; set; }
         
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime LoanDate { get; set; }

@@ -5,7 +5,7 @@ using System.Dynamic;
 
 namespace BMS.Models.Entities
 {
-    public class BookItem
+    public class BookTitleItem
     {
         [Key]
         public Guid Id { get; set; }

@@ -20,7 +20,7 @@ namespace BMS.Services.Repository
             _context = context;
         }
         
-        public async Task<IEnumerable<BookTitle>> GetBookTitles(string keyword)
+        public async Task<IEnumerable<BookTitle>> GetBookTitles(string? keyword)
         {
             IQueryable<BookTitle> res = _context
                 .BookTitles
@@ -30,7 +30,6 @@ namespace BMS.Services.Repository
                 keyword = keyword.Trim();
                 res = res.Where(b => b.Name.Contains(keyword));
             }
-
             return await res.ToListAsync();
         }
 
@@ -49,6 +48,21 @@ namespace BMS.Services.Repository
         public async Task<bool> SaveAsync()
         {
             return (await _context.SaveChangesAsync() >= 0);
+        }
+
+        public void DeleteBookTitle(BookTitle bookTitle)
+        {
+            _context.BookTitles.Remove(bookTitle);
+        }
+
+        public void DeleteBookTitleItem(BookTitleItem bookTitleItem)
+        {
+            _context.BookTitleItems.Remove(bookTitleItem);
+        }
+
+        public async Task<BookTitleItem?> GetBookTitleItem(Guid bookTitleItemId)
+        {
+            return await _context.BookTitleItems.FirstOrDefaultAsync(bookTitleItem => bookTitleItem.Id == bookTitleItemId);
         }
     }
 }

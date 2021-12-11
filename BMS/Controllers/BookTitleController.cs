@@ -8,6 +8,7 @@ using BMS.Models.Entities;
 using BMS.ResourceParameters;
 using BMS.Services.IRepository;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BMS.Controllers
@@ -32,12 +33,12 @@ namespace BMS.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> GetBookTitles([FromQuery] BookTitleResourceParamaters paramaters)
+        public async Task<IActionResult> GetBookTitles([FromQuery] BookTitleResourceParamaters? paramaters)
         {
-            var bookTitlesFromRepo = await _bookTitleRepository.GetBookTitles(paramaters.Keyword);
+            var bookTitlesFromRepo = await _bookTitleRepository.GetBookTitles(paramaters?.Keyword);
             if (!bookTitlesFromRepo.Any())
             {
-                return NotFound($"没有书目，请添加");
+                return NotFound();
             }
 
             return Ok(_mapper.Map<IEnumerable<BookTitleDto>>(bookTitlesFromRepo));
@@ -59,7 +60,7 @@ namespace BMS.Controllers
             }
 
             return Ok(_mapper.Map<BookTitleDto>(bookTitleFromRepo));
-        }
+        } 
         
         /// <summary>
         /// 创建书目
@@ -72,10 +73,7 @@ namespace BMS.Controllers
             [FromBody] BookTitleForCreationDto bookTitleForCreationDto)
         {
             var bookTitle = _mapper.Map<BookTitle>(bookTitleForCreationDto);
-            for (var i = 0; i < bookTitleForCreationDto.TotalNumber; i++)
-            {
-                bookTitle.BookItems.Add(new BookItem(){ Id = new Guid() });
-            }
+            bookTitle.InitBookItems();
             await _bookTitleRepository.AddBookTitleAsync(bookTitle);
             await _bookTitleRepository.SaveAsync();
             return CreatedAtAction(
@@ -83,13 +81,47 @@ namespace BMS.Controllers
                 new { bookTitleId = bookTitle.Id }, 
                 _mapper.Map<BookTitleDto>(bookTitle));
         }
+
+        /// <summary>
+        /// 更新书目信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPatch]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> PartiallyUpdateBookTitle(
+            [FromRoute] Guid bookTitleId,
+            [FromBody] JsonPatchDocument<BookTitleForUpdateDto> patchDocument)
+        {
+            var bookTitleFromRepo = await _bookTitleRepository.GetBookTitleByIdAsync(bookTitleId);
+            if (bookTitleFromRepo == null)
+            {
+                return NotFound("不存在该书目");
+            }
+
+            var bookTitleToPacth = _mapper.Map<BookTitleForUpdateDto>(bookTitleFromRepo);
+            patchDocument.ApplyTo((bookTitleToPacth), ModelState);
+
+            if (!TryValidateModel(bookTitleToPacth))
+            {
+                return ValidationProblem(ModelState);
+            }
+            _mapper.Map(bookTitleToPacth, bookTitleFromRepo); 
+            await _bookTitleRepository.SaveAsync();
+            return NoContent();
+        }
+
+        [HttpDelete("{bookTitleId}")]
+        public async Task<IActionResult> DeleteBookTitle([FromRoute] Guid bookTitleId)
+        {
+            var bookTitleFromRepo = await _bookTitleRepository.GetBookTitleByIdAsync(bookTitleId);
+            if (bookTitleFromRepo == null)
+            {
+                return NotFound("未找到该书目");
+            }
+            _bookTitleRepository.DeleteBookTitle(bookTitleFromRepo);
+            await _bookTitleRepository.SaveAsync();
+            return NoContent();
+        }
         
-        // /// <summary>
-        // /// 更新书目信息
-        // /// </summary>
-        // /// <returns></returns>
-        // [HttpPatch]
-        // [Authorize(AuthenticationSchemes = "Bearer")]
-        // public async Task<IActionResult> UpdateBookTitle 
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -9,23 +10,45 @@ using BMS.Services.IRepository;
 using BMS.Services.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
 var configuration = builder.Configuration;
 
-services.AddControllers(setupAction =>
-{
-    setupAction.ReturnHttpNotAcceptable = false;
-}).AddXmlDataContractSerializerFormatters();
+services.AddControllers(setupAction => 
+        { setupAction.ReturnHttpNotAcceptable = false; })
+    .AddNewtonsoftJson(setupAction => 
+        setupAction.SerializerSettings.ContractResolver = 
+            new CamelCasePropertyNamesContractResolver())
+    .AddXmlDataContractSerializerFormatters()
+    .ConfigureApiBehaviorOptions(
+        setupAction =>
+        {
+            setupAction.InvalidModelStateResponseFactory = context =>
+            {
+                var problemDetail = new ValidationProblemDetails(context.ModelState)
+                {
+                    Status = StatusCodes.Status422UnprocessableEntity,
+                    Instance = context.HttpContext.Request.Path,
+                    Extensions = {new KeyValuePair<string, object?>("traceId", context.HttpContext.TraceIdentifier)}
+                };
+                return new UnprocessableEntityObjectResult(problemDetail)
+                {
+                    ContentTypes = {"application/problem+json"}
+                };
+            };
+        });
 
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();

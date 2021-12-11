@@ -8,9 +8,12 @@ namespace BMS.Services.IRepository
 {
     public interface IBookTitleRepository
     {
-        Task<IEnumerable<BookTitle>> GetBookTitles(string keyword);
+        Task<IEnumerable<BookTitle>> GetBookTitles(string? keyword);
         Task<BookTitle?> GetBookTitleByIdAsync(Guid bookTitleId);
         Task AddBookTitleAsync(BookTitle bookTitle);
         Task<bool> SaveAsync();
+        void DeleteBookTitle(BookTitle bookTitle);
+        void DeleteBookTitleItem(BookTitleItem bookTitleItem);
+        Task<BookTitleItem?> GetBookTitleItem(Guid bookTitleItemId);
     }
 }
