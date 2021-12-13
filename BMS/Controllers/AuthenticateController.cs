@@ -36,7 +36,7 @@ namespace BMS.Controllers
         }
 
         /// <summary>
-        /// ×¢²á
+        /// æ³¨å†Œ
         /// </summary>
         /// <param name="registerDto"></param>
         /// <returns></returns>
@@ -60,7 +60,7 @@ namespace BMS.Controllers
         }
 
         /// <summary>
-        /// µÇÂ¼
+        /// ç™»å½•
         /// </summary>
         /// <param name="loginDto"></param>
         /// <returns></returns>
