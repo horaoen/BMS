@@ -20,7 +20,7 @@ namespace BMS.Services.Repository
             _context = context;
         }
         
-        public async Task<IEnumerable<BookTitle>> GetBookTitles(string? keyword)
+        public async Task<IEnumerable<BookTitle>> GetBookTitlesAsync(string? keyword)
         {
             IQueryable<BookTitle> res = _context
                 .BookTitles
@@ -63,6 +63,16 @@ namespace BMS.Services.Repository
         public async Task<BookTitleItem?> GetBookTitleItem(Guid bookTitleItemId)
         {
             return await _context.BookTitleItems.FirstOrDefaultAsync(bookTitleItem => bookTitleItem.Id == bookTitleItemId);
+        }
+
+        public async Task<IEnumerable<BookTitle>> GetBookTitleByIdsAsync(IEnumerable<Guid> bookTitleIds)
+        {
+            return await _context.BookTitles.Where(bookTitle => bookTitleIds.Contains(bookTitle.Id)).ToListAsync();
+        }
+
+        public void DeleteBookTitles(IEnumerable<BookTitle> bookTitles)
+        {
+            _context.BookTitles.RemoveRange(bookTitles);
         }
     }
 }

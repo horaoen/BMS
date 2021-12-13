@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text.Json;
+using BMS.Controllers;
 using BMS.Models.Entities;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Validations;
 
 namespace BMS.Database
 {
@@ -55,6 +59,104 @@ namespace BMS.Database
 
             #region 添加用户种子数据
 
+            var superAdmin = new IdentityRole()
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = "SuperAdmin",
+                NormalizedName = "SuperAdmin".ToUpper()
+            };
+            var admin = new IdentityRole()
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = "Admin",
+                NormalizedName = "Admin".ToUpper()
+            };
+            var borrower = new IdentityRole()
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = "Borrower",
+                NormalizedName = "Borrower".ToUpper()
+            };
+            //角色集合
+            var roles = new List<IdentityRole>()
+            {
+                superAdmin,
+                admin,
+                borrower
+            };
+
+            var superAdminUser = new User()
+            {
+                Id = Guid.NewGuid().ToString(),
+                UserName = "horaoen",
+                NormalizedUserName = "horaoen".ToUpper(),
+                Email = "horaoen@gmail.com",
+                NormalizedEmail = "horaoen@gmail.com".ToUpper(),
+                PhoneNumber = "15137667148"
+            };
+            var adminUser = new User()
+            {
+                Id = Guid.NewGuid().ToString(),
+                UserName = "bleso",
+                NormalizedUserName = "bleso".ToUpper(),
+                Email = "bleso624@gmail.com",
+                NormalizedEmail = "bleso624@gmail.com".ToUpper(),
+                PhoneNumber = "15137667148",
+            };
+            var borrowerUser = new User()
+            {
+                Id = Guid.NewGuid().ToString(),
+                UserName = "fhr",
+                NormalizedUserName = "fhr".ToUpper(),
+                Email = "2495644988@qq.com",
+                NormalizedEmail = "2495644988@qq.com",
+                PhoneNumber = "15137667148"
+            };
+
+            //设置用户密码
+            superAdminUser.PasswordHash = new PasswordHasher<User>()
+                .HashPassword(superAdminUser, "Horaoen@624");
+            adminUser.PasswordHash = new PasswordHasher<User>()
+                .HashPassword(adminUser, "Horaoen@624");
+            borrowerUser.PasswordHash = new PasswordHasher<User>()
+                .HashPassword(borrowerUser, "Horaoen@624");
+            
+            //用户集合
+            var users = new List<User>()
+            {
+                superAdminUser,
+                adminUser,
+                borrowerUser
+            };
+
+            var superAdminUserRole = new IdentityUserRole<string>()
+            {
+                UserId = superAdminUser.Id,
+                RoleId = superAdmin.Id,
+            };
+            var adminUserRole = new IdentityUserRole<string>()
+            {
+                UserId = adminUser.Id,
+                RoleId = admin.Id,
+            };
+            var borrowerUserRole = new IdentityUserRole<string>()
+            {
+                UserId = borrowerUser.Id,
+                RoleId = borrower.Id,
+            };
+            
+            //用户角色集合
+            var userRoles = new List<IdentityUserRole<string>>()
+            {
+                superAdminUserRole,
+                adminUserRole,
+                borrowerUserRole
+            };
+
+            //注入数据
+            modelBuilder.Entity<User>().HasData(users);
+            modelBuilder.Entity<IdentityRole>().HasData(roles);
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(userRoles);
             #endregion
         }
     }

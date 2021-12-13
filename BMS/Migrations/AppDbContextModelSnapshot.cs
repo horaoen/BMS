@@ -113,955 +113,955 @@ namespace BMS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("906eba35-883c-4e35-bddd-49f5aeb4cd9e"),
+                            Id = new Guid("9300e2bb-de72-42b8-a333-3d4719afb8fe"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("8d55243b-0ea9-4ee8-95dd-7ebaaef3be00"),
+                            Id = new Guid("d497461d-8063-4eab-9233-3e22af8ec771"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("87fa6628-7eb4-419d-bc7f-234289425766"),
+                            Id = new Guid("3fb614cb-b664-4c2e-9d7b-25e8501b198f"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("39c7d1e5-04f2-4653-a503-2089fcafbe5b"),
+                            Id = new Guid("82b35a07-3e1f-4e5b-ac06-d62d7b8df721"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("8c647376-d1e8-4f84-90d4-ea2aa19fc756"),
+                            Id = new Guid("f421aa0c-f57b-4171-a5e1-4f980e0c936d"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("6142c2c5-03f7-4e88-b328-04223fa03cef"),
+                            Id = new Guid("90f0e22c-9ab7-48fe-aaa1-e3870eb8ca39"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("152f0562-407e-41b5-80eb-fcb84ab5fee5"),
+                            Id = new Guid("a38b3d9b-b6c9-4d76-8b80-2d734bca9773"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("84046497-a909-42a6-913b-33efa249e1b4"),
+                            Id = new Guid("d87e5db4-f258-4fb3-b647-185c88a6fe62"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("1fec1f37-2134-40c6-b38a-a1f85bde048d"),
+                            Id = new Guid("daa76c3c-84cb-4259-bea4-852c801b1f9f"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("09482809-d076-4cc8-b64a-505b934de6f0"),
+                            Id = new Guid("4d3c296a-5b4e-420e-9c08-e3296decd66a"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("7699c38a-6ee0-4a42-883b-0d7d7c6a0282"),
+                            Id = new Guid("3ada5d02-2612-48cf-8edc-7f4db3ac805a"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("a19f335c-c84a-44a7-8934-fe9e828ed051"),
+                            Id = new Guid("bbccca50-fc62-4bd4-9006-64d52d356c1e"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("47473a8d-14b8-4e45-aea1-35f07791fd5d"),
+                            Id = new Guid("3e6d5a7e-97bc-406b-a83f-8e28dc0bc609"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("2893c980-de5d-4b9e-95e7-4891a73bca11"),
+                            Id = new Guid("6ded4ae3-8b36-414f-8370-21450e6e7905"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("9877cecb-9514-4e04-9268-1e3514b33281"),
+                            Id = new Guid("d91dc8dd-2e33-4736-9219-f0280a003ae8"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("3eecdc10-6478-414d-b90f-01e532bed8b9"),
+                            Id = new Guid("d89ac6d1-bde3-4be5-adeb-a4c82931908b"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("2fee3f5d-aad3-4d58-aeae-38c41c8163df"),
+                            Id = new Guid("046cd425-72d1-459a-b3b5-1bd2912e13b0"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("fa0e14d4-7429-40f7-8f18-362ad9036736"),
+                            Id = new Guid("f5b309be-08fb-469f-8e93-e23cba2006f2"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("495c2297-3cdc-4a3d-a0ac-d8f222c91458"),
+                            Id = new Guid("5fdccd7e-4059-4455-bbcf-bf8c3b29d9af"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("1c96cf4f-54de-4e74-8578-3e480b0d69f5"),
+                            Id = new Guid("78f7239f-e0f7-40f3-9331-7eff84ec1e55"),
                             BookTitleId = new Guid("3ea3fa38-6409-2e3e-04f5-c0cc287c5c96"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("4e6527a5-a415-4cf6-8f62-bfd1ca482480"),
+                            Id = new Guid("f2717147-8458-4fd9-911a-42074c1055f8"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("c3c4beba-a3bf-415c-abeb-3748af547dab"),
+                            Id = new Guid("1b0919ec-3b24-458b-bd37-2df6cba4399d"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("36e9c28c-c955-478f-bc3b-408795e1acc5"),
+                            Id = new Guid("f20e9af1-39f3-48fb-8dfa-73769764bc65"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("535d2292-a031-42e9-8a76-7608c13c6fc7"),
+                            Id = new Guid("ecf2a47e-5868-4cff-903b-814924d0b3db"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("4505ba78-02f6-4222-886a-ddedde668cd2"),
+                            Id = new Guid("c75bbff4-048c-4c56-97b2-9f5f13a15c95"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("e2c5243d-7391-47c3-b359-38122552d102"),
+                            Id = new Guid("9d1754fc-fd8a-4fe2-9439-1d05e27a3eb4"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("5ac8767a-ae2f-449f-9054-354d9a9021de"),
+                            Id = new Guid("eef360d0-32db-4492-bfd8-ddb7277fe56c"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("26960c50-d8e8-4a07-9199-8eca5531ddd1"),
+                            Id = new Guid("b8217fd4-e941-476d-91e2-8e00625b614f"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("50b7e857-2569-4c86-9e45-186fc8b6b912"),
+                            Id = new Guid("9694ce9b-4681-4b76-8322-57fb82105f61"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("cde5dc59-20e9-4722-a089-f456b5af3416"),
+                            Id = new Guid("610e864d-ab18-401d-ae7e-e0c72150c474"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("e2fb3a72-1e1b-404f-8b8e-f144b110fadb"),
+                            Id = new Guid("58516e0a-a7d5-4ed7-8ff2-3de09d42442e"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("ba3424d8-d1d7-413e-804e-beb765e6e40d"),
+                            Id = new Guid("7e41746c-1eed-4368-9f6f-794a4650e127"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("df607b06-b42e-42fc-9e4f-1cb129e624c7"),
+                            Id = new Guid("75110893-46f1-49e6-875b-ff41a6cafb65"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("887287d6-2e99-4308-8823-4911c9ef2c68"),
+                            Id = new Guid("2582af07-e384-4da4-a993-8e873b46e2fd"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("ddf87bac-150e-4c88-9b8e-c2c81758b141"),
+                            Id = new Guid("02780bc3-f94a-4e54-855c-e15f618a5037"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("ed8a4318-f621-409a-a0b4-fb91d5b8a36e"),
+                            Id = new Guid("bd57f19d-6ea0-4cf2-b189-374a554da0a7"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("173b274b-93a2-4fc9-b3e0-309d410853f0"),
+                            Id = new Guid("aff32c8b-2796-4040-97a3-9c4470c1e95c"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("acdfe568-4738-49ea-9732-aa4b6d962a56"),
+                            Id = new Guid("8f4e2495-ae7a-4d6c-827d-db6aaeffb6fc"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("04e8a901-40ff-4efa-9743-d70011162775"),
+                            Id = new Guid("eb0580c1-9892-4a2b-9910-8c5af8bc01cf"),
                             BookTitleId = new Guid("1abc27d5-73da-9a8c-ab95-5d7aa8a35f1e"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("ecf43ff0-2429-40b6-8085-052185b59aca"),
+                            Id = new Guid("7408a6b3-11a6-4070-8533-173fa3949884"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("816a3d9e-a40d-4e9c-8b8d-26810c6e2d00"),
+                            Id = new Guid("2cf8af3e-b9dd-4656-8ae8-acc8a4ef20a8"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("c11d2ca5-42c7-4cb1-bb9e-e7f9525be5b2"),
+                            Id = new Guid("bebd1f56-177d-4d95-ae74-c72b8a38f3a4"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("d5a50e38-0277-4abf-94b6-985c8297003e"),
+                            Id = new Guid("cc156dc3-c638-4886-9f41-09b332b16db7"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("a0cd8a21-679d-4562-96c3-c52040971a1c"),
+                            Id = new Guid("1a41fec2-f12a-4143-a010-e57f8975b695"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("cf830f43-a98d-4bfc-8c91-4e67a5b6faa2"),
+                            Id = new Guid("854c9677-48ca-453c-ace3-cd83793e481a"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("b78f6aea-b2c2-4505-bb5e-407346710e88"),
+                            Id = new Guid("258751ad-4abe-44eb-a538-87e3010f7c39"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("63ed3b4c-c4ea-4694-be4f-870a9dee1633"),
+                            Id = new Guid("56808d21-845e-454c-b438-2dc566402665"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("bf23c0cd-ce04-4e13-b2d5-3ab072d09a78"),
+                            Id = new Guid("232a5600-9e7a-4892-a1ad-224128625d39"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("2a4bd48c-ecdb-4860-8395-3d065343610e"),
+                            Id = new Guid("285e09eb-5c40-44b9-9e0d-1bcb5de24e4d"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("7f8f7b63-cde1-475b-8c78-c6ea7a2a8bba"),
+                            Id = new Guid("ef76072b-2772-403c-b685-46b76310c516"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("44f6d8f7-631a-4639-bbd6-5d3e6be9cbd1"),
+                            Id = new Guid("1dab887b-ffba-4b0f-bacc-4dcfd4e416b6"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("54419020-3d16-4a2b-88ad-1ffdcc7810c0"),
+                            Id = new Guid("29e95eff-6b5f-4c19-b81c-f5cb26691565"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("c80bb5d5-78b5-45e5-ad66-6c025229a192"),
+                            Id = new Guid("2e0a6217-7878-4c63-8cef-83c1b8bc4b73"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("e10fb377-2b80-4dec-a598-8b23491b665e"),
+                            Id = new Guid("4e775b6c-f1d3-4ade-af06-18841578e4ee"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("501d872e-5f50-4508-9810-f81114aa3dcb"),
+                            Id = new Guid("9999e404-a7c0-43eb-8124-fa4f7aa1da37"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("00fc0622-2427-406d-9fb3-1add3cfaab3e"),
+                            Id = new Guid("6be0b40c-c166-46a2-b90d-39df4ad78743"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("ed7ed29d-86ba-41b4-a68b-245f0861cd9a"),
+                            Id = new Guid("ce29fdee-5dbb-433d-b8a9-98fa95cbd84b"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("6ccc0594-2d8d-412d-ad16-d33ae29dd21e"),
+                            Id = new Guid("09819962-012d-4222-90f9-c9fbc087bd43"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("55625207-1f0a-4e58-b01a-9e55101443e4"),
+                            Id = new Guid("12efe4aa-ca0a-4b01-8fdf-6f31ee3204b7"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("12f008de-f54a-4ea3-87d6-da2f1f85a1f3"),
+                            Id = new Guid("67329e24-2cfb-4440-80e8-ed8a902baddd"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("05176841-1169-49c1-823b-72161b825d28"),
+                            Id = new Guid("898547cc-35aa-4eb2-aa88-3717e6ffe462"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("f92e21f0-291e-4452-beac-bc4a51c1a397"),
+                            Id = new Guid("26a6909e-4e13-4206-aa14-5357a066f81a"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("b43c8360-6818-4898-8782-d5214b9202b9"),
+                            Id = new Guid("7675cdb6-30ea-4ca1-8765-53323448c84c"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("964f409a-bc52-4e1c-98ed-115a4a050d12"),
+                            Id = new Guid("c769e604-e0ae-4042-bb01-3f561a1d3e68"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("4cc813d1-9305-496b-9a7c-3c40a950c251"),
+                            Id = new Guid("1d0728b1-9376-4370-8862-9a818365b6fe"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("ea763356-0aaa-4aa1-afdd-c924bf968580"),
+                            Id = new Guid("730235c7-57cc-4a1f-97b0-260e0ba909c6"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("1938c258-66a9-4fb9-8749-e6897a94fad9"),
+                            Id = new Guid("f42926a1-5c3a-46c2-b295-21b685de4358"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("7f73a8fe-9297-453b-a228-e6e579d76ace"),
+                            Id = new Guid("921fc3dc-bd27-43da-9dcc-5b8ef15489e3"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("8ea8fa76-3127-44e3-836e-ed3a3ea410cf"),
+                            Id = new Guid("57b8e687-71ae-4882-87e4-2de42f272733"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("ae2c9198-8f80-4316-8c01-375e3c6cef16"),
+                            Id = new Guid("9d51ad29-a892-4b5d-b0cb-ee21cf4ea397"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("b3fea6cb-ec27-4654-b22e-81a6f1eb4e4b"),
+                            Id = new Guid("8bf4a6c0-b5f9-4914-b047-24f8cfb8df62"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("54af1532-93e4-4c40-b073-dbec0bf757f5"),
+                            Id = new Guid("8349a772-bf61-4d4b-8bc0-bc07021cd413"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("c66e6aa5-4c50-43ec-8fc8-194960e73a01"),
+                            Id = new Guid("8aa5939f-932b-4555-a860-4dfcd8eebd9f"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("92591341-fac1-4533-9226-9bab834beec8"),
+                            Id = new Guid("d7f49522-2529-4e6b-aad2-0d2704b536c8"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("f5faefa9-210e-4a37-8dc7-ac33f42b4031"),
+                            Id = new Guid("449097ff-822e-44a2-89df-b6e6ed27677e"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("7b45f0d7-698d-4426-9058-48299889f0c0"),
+                            Id = new Guid("20de28ec-bed9-4fa2-a979-725eaaef87a9"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("73ffd694-56cd-4252-b23e-e63e7179efed"),
+                            Id = new Guid("5cf27ef7-724a-4825-bca0-45e588f53c55"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("312a0ffb-fc79-49ee-b343-a9c4e4b9bb4e"),
+                            Id = new Guid("ac121304-9c17-49ab-aceb-e7cf624c72b2"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("42774470-fd27-4846-8d17-f5d2fb33ee1d"),
+                            Id = new Guid("70e6c2ae-0cb1-4663-b920-7aa57a302ca1"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("0a8d828f-3652-4101-83f9-93af566c3afe"),
+                            Id = new Guid("a598aedd-8d34-4f15-b84b-4ec109b3ea83"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("a30b3646-86d6-42a8-b362-6d0d39d87e5c"),
+                            Id = new Guid("ca111aa7-0bb2-4585-a3f6-5b3702e9e2bc"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("5bd7f855-0154-424e-9f75-7fd1f76cacd0"),
+                            Id = new Guid("ba056c0f-93b5-4a14-8ba9-fc77c0c1fd6e"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("1cb250c1-6bff-4e56-8647-014775dc8e00"),
+                            Id = new Guid("77175474-472e-427b-b86e-5a84f01b24cb"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("8719622c-b10d-40c9-b3de-c480aba5c669"),
+                            Id = new Guid("12e4b2c4-7712-412c-b61e-5ce72e8f7a49"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("ae3ef366-ae87-4cbd-83f2-f7ea62565fa2"),
+                            Id = new Guid("381d3059-733c-4e66-ac88-1a1e76b7319a"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("12d7bc98-300f-4584-a569-5ee14e420733"),
+                            Id = new Guid("0dd85a15-6358-4072-b853-78ca54e00308"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("6ade13b0-d832-44c9-a635-79416b0ce716"),
+                            Id = new Guid("bbc970eb-8c73-4234-9cb8-a28ae355d944"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("ba619330-11cc-4550-86e1-ae1145edc7be"),
+                            Id = new Guid("b2dc1f19-0056-4eb3-a660-322f62339e14"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("9ee128f8-d94a-4679-896f-056660d320bf"),
+                            Id = new Guid("2c479fdc-3e32-4253-8304-ef4bd184d16d"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("25e447e5-da03-403a-af4d-0889b078a9fe"),
+                            Id = new Guid("041a47f5-3653-4ecc-a0fb-e5a4cf3fcad6"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("6d38f038-3c4f-4ba3-955f-2a00d2fca7d8"),
+                            Id = new Guid("e1b22a02-9816-4125-9939-9fef899b2350"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("8ea751ef-78ee-4c45-81ce-0626977f8eed"),
+                            Id = new Guid("854fe0cf-e0cc-417f-9dcd-038d715f7d86"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("237eaddc-c93f-476b-be0d-c6897e87dd06"),
+                            Id = new Guid("bdca04cb-ad79-408f-99a9-f34ac5915f6e"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("888f30ba-d2e2-469e-991c-709024ad22dc"),
+                            Id = new Guid("609d254b-ccfc-42ab-9316-0a07fe4b4047"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("1149e19a-a95e-457f-85e5-6afa0e7f0cab"),
+                            Id = new Guid("8b4cbf6e-8b28-48a9-bc14-d139486ff1ee"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("33ab4178-d759-48ac-b7df-cf9a8fb1d1be"),
+                            Id = new Guid("73f990a2-c621-459b-972e-df1a6dbc1a74"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("2b06d367-a513-4632-ad15-3027fc2b9a90"),
+                            Id = new Guid("188b0d0f-0b05-460c-9b3e-b1c03652e187"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("b5ecf4e0-475d-49a4-8ebd-fcbaca72b064"),
+                            Id = new Guid("bd2af875-aabf-4a56-8e68-462134405691"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("b0a4c3c0-031e-4537-b799-e48864e04871"),
+                            Id = new Guid("f102223d-27ee-4665-a990-5643bf230f89"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("211144f0-8e9d-4564-a612-7415d34df1d9"),
+                            Id = new Guid("923f541d-72ee-4431-b900-371f17ca4a78"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("0f7d6c25-5813-4667-aa1c-ce99a217b943"),
+                            Id = new Guid("7e5574f5-542e-414b-b19d-df8d0305677a"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("4a496332-8eda-415c-be68-0c09a57e00ca"),
+                            Id = new Guid("8a873b29-b0c5-4f81-8074-bc4e6e8bf6a9"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("6d5a17a5-7b2d-4316-a1f7-7310bb44a728"),
+                            Id = new Guid("69d8e949-27f7-4a12-a500-f17c5f91a525"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("dc17574b-88d1-4902-9077-e1d0d5406aa8"),
+                            Id = new Guid("35d9d13e-4902-4e94-a6e7-293f9edb1e1e"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("bb1b93fa-9892-41f1-8c88-2e23b5a6d43f"),
+                            Id = new Guid("9ab89604-f0ee-4050-863c-d6f0e437af48"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("8a476269-1d65-4081-b5dd-bd2b90915456"),
+                            Id = new Guid("ca666fd9-40f8-40ca-a509-b7835cba7c7f"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("250e7fcd-b8d0-4939-b701-04409efc2d29"),
+                            Id = new Guid("39309464-45f0-45ba-8546-d3bbdd263c53"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("5e52c499-108e-4c28-a2be-57de34707159"),
+                            Id = new Guid("298f9194-bcc7-4d6f-b2df-15917db3ce49"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("669b525d-a896-44e1-9407-7f355eb8c6b8"),
+                            Id = new Guid("c37aa2ea-68ab-47ba-986e-a3dd119b8d7d"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("21ddb979-6688-4127-bfc7-a84c449a0ea9"),
+                            Id = new Guid("f9df81a2-5d60-4d30-8bad-dfc6141ef221"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("051b9c47-2ff2-475d-b7d4-2cfb89b745ad"),
+                            Id = new Guid("4f6f051c-f119-44cf-b86d-1f1cf96a90cd"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("193d8e66-0bdd-4f47-be99-1894640549a3"),
+                            Id = new Guid("04f29239-d0f1-410a-bd0c-967bdfb8fbef"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("f889cc7f-d89c-4062-9fad-54f8b5690827"),
+                            Id = new Guid("06d90e7e-c09a-4ffa-b330-f698162696ce"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("cd03223a-073a-4d73-b8bd-9d8cd87cf7ec"),
+                            Id = new Guid("1c31ec8b-2500-417b-97d0-09f62ebedeb8"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("fad69c2f-04d2-4230-a7af-907c9c34a88f"),
+                            Id = new Guid("094b6460-82cd-4a66-b724-86d1390edf45"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("694f493d-ea68-4bab-a1e2-82a90b673bf4"),
+                            Id = new Guid("15fade52-9783-4294-be0b-015857029278"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("bb294a85-320e-4639-a60b-00ba3cc3e0dd"),
+                            Id = new Guid("d73bf2a1-6886-4fb1-a594-2c2f3df7ea2e"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("0b8ee311-9f5d-43f9-b647-bbfda91a8f75"),
+                            Id = new Guid("60c90e27-7d36-481f-a017-f579e3a22295"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("db69f4b7-a387-4d40-8d4b-96c854238dde"),
+                            Id = new Guid("d5f117a8-5067-40a7-92f5-671e3ded031e"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("96cd1885-b61a-46ee-a911-5df120f68653"),
+                            Id = new Guid("8a543e92-b9ce-436e-a488-1df60c2a3568"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("7d26f978-0302-4449-b538-7afd216624aa"),
+                            Id = new Guid("2ebc0dc8-b940-4f1a-87fc-6351c9dc7082"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("25aafd0d-5be6-43f9-84c2-b8840a1c7e10"),
+                            Id = new Guid("e0e74010-9f33-4206-855c-cff215366902"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("8a6a4f0a-3ae7-4532-94c6-df70297fd266"),
+                            Id = new Guid("3ae27868-df0e-4e52-b293-5e72a1fa02cc"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("21651a41-63bd-4cef-b8bb-6e81ed91ea99"),
+                            Id = new Guid("300d6dea-f23d-4f05-88f0-89f000f3c2ce"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("abd37237-b82e-4ab4-9456-cd48201894ab"),
+                            Id = new Guid("7aa5496b-09c0-453e-a46d-a6c4aa957b1f"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("699e7378-ad2d-418d-84cf-56b960adb870"),
+                            Id = new Guid("f25d8a78-4f6c-4c4b-8f5c-a0b568a0309d"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("dd2c39d1-8242-4e9e-8400-26ca9e781368"),
+                            Id = new Guid("2b3dd895-24bc-4d79-8739-46839765dfd9"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("489c5156-2285-4688-b613-fb7c0b87d9db"),
+                            Id = new Guid("a1536faf-a3cf-4cfe-821e-48a3082b1252"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("4459a30a-3d7a-4f22-bc9b-9046fa7766a5"),
+                            Id = new Guid("97df6f11-cded-400b-a350-e26fb87f255c"),
                             BookTitleId = new Guid("cbee1496-fc25-0d42-98cb-827cf70a69d1"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("d0cddc84-dc63-4aee-8132-90c678fc8bb3"),
+                            Id = new Guid("2aaa85db-d80e-4147-8e33-f7ae448d3c80"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("4d4eb5a4-fc69-46f1-9830-c22785cf3046"),
+                            Id = new Guid("16b1a86b-1478-4487-9517-81f9fe4ac349"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("1b62724b-a3a4-4dfd-938b-0e956c1eb638"),
+                            Id = new Guid("d9372b35-f74c-458e-955d-94ee483c0856"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("be4096aa-e018-427a-8b73-64e4125819fc"),
+                            Id = new Guid("37054619-ed9d-444c-baec-02498ae6c767"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("67b92c6f-c97b-40f8-b903-731155f02801"),
+                            Id = new Guid("3c138078-56b6-4b80-bcd4-beeb542c69fe"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("65ed08d6-dc67-43e5-b593-67f74dad6da5"),
+                            Id = new Guid("b8adcbdf-d70b-45a1-bfe6-b5c21ba405cc"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("54ffa415-46b7-415d-b533-1aa3a40770d8"),
+                            Id = new Guid("d21ed9a2-a924-4f85-9b4d-b939ecab3ba6"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("0ccb7576-c20a-4ca2-a382-2eca4ba8cca5"),
+                            Id = new Guid("f92640cd-4efe-4dad-91b0-2687ff03f0b7"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("2c10e7ab-4e92-4642-8e36-115d9e55f2bf"),
+                            Id = new Guid("3f602bb8-fe92-45f3-8572-100492c646f9"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("7d4ddc8a-f705-46bf-884c-cb9188424fd4"),
+                            Id = new Guid("90c81cd0-8353-434b-b477-9842bf7f0dbb"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("11c867ef-a6e7-4c1c-ad5e-819a92c8f95f"),
+                            Id = new Guid("8537f5d7-1dee-425e-8c41-9c90d1116af0"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("ac2790d7-d8d7-4dc6-ade0-e81fac94b584"),
+                            Id = new Guid("a4f21b93-b9b8-4662-a7b5-39223961b775"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("caa54e94-33e6-4578-93de-e297267ee16b"),
+                            Id = new Guid("13df2e93-e0c0-4952-9bf7-0043492cd4f1"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("802ab0d5-68ac-471d-8856-4ac02a47257f"),
+                            Id = new Guid("16baa191-1935-4b71-b723-e60a082d2944"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("2f72e17f-e810-4bcd-910f-3dd6807a7fec"),
+                            Id = new Guid("39da82c3-624a-4bf2-9c9f-b7a3c89f0e47"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("88144215-e8d1-4d53-9f19-23451aac8bfa"),
+                            Id = new Guid("3d4d6990-b9fd-4f17-9592-cedc08649523"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("660d59d2-bad0-4065-9000-e8675ce74bd2"),
+                            Id = new Guid("786f1b23-a080-4a41-aa2c-a09061a6ab6f"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("bd671072-45de-4f50-adb9-49c7830077f6"),
+                            Id = new Guid("fb10024d-404f-4bcd-851f-8ebac3b2c93d"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("bfdfb72b-c0ab-4905-95c7-6512447b2859"),
+                            Id = new Guid("03565f88-dd7c-4dad-a0ae-5e8df53580c6"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("c921072f-1ba1-4472-b574-bb0255f3519b"),
+                            Id = new Guid("3c027cf7-4240-4367-bbf6-9273fe06ee4f"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("bdf7b7fd-f55b-4c49-b36b-19c16723469e"),
+                            Id = new Guid("f9079244-c795-4a52-b514-f646bc06da13"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("7e9d83c6-adbe-44db-b9f2-d8e963f13081"),
+                            Id = new Guid("af64323b-86e1-4b88-8372-aa4ea2177013"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("4923a3d2-4fc5-4c13-b178-c05851909f26"),
+                            Id = new Guid("84575b2b-1958-4e61-857d-b122dd2d851f"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("e5362b2f-3101-4832-af1f-82c15ecc980f"),
+                            Id = new Guid("1cd3a199-eebb-4d75-8d7b-74bf54171a24"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("d7d5f8b1-668f-4689-8365-06012d9e6270"),
+                            Id = new Guid("c52b00c2-70c5-401a-8e18-37839e03372b"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("2775f4ba-3382-47ea-969d-dbaf8a352311"),
+                            Id = new Guid("4ff91018-59df-4c07-8b26-1f44a6ef564d"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("d2304664-2829-4d37-8423-e3673665e0cf"),
+                            Id = new Guid("20a05dd9-f21c-47bb-9dea-0bb2352b83e8"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("7ad2a24d-13ed-40de-9b44-9633120698b1"),
+                            Id = new Guid("dfe57531-76e0-4096-a6b8-e8546ae99895"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("13180dbe-1824-4f06-960b-c6d20bb24719"),
+                            Id = new Guid("e5c4cde3-1e35-42cb-9a6f-05603c026c99"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         },
                         new
                         {
-                            Id = new Guid("e62d1b7b-a71c-424d-8ae9-e91dc3277155"),
+                            Id = new Guid("b9d84a94-5bc7-40d1-858b-a66689d01d5e"),
                             BookTitleId = new Guid("7abb6e0a-3b6f-c5a1-2be8-32cdc779a93f"),
                             IsBorrowed = false
                         });
@@ -1181,6 +1181,65 @@ namespace BMS.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "fbae1800-3f60-497c-b66a-723b83c06915",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "074a4e18-4fac-4cc6-9658-bd46ecbab6fc",
+                            Email = "horaoen@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            MaxBooks = 0,
+                            MaxDays = 0,
+                            NormalizedEmail = "HORAOEN@GMAIL.COM",
+                            NormalizedUserName = "HORAOEN",
+                            PasswordHash = "AQAAAAEAACcQAAAAENQLU/plCP8JDTCUYFKT8ojQlkN/3E96dTOMdMgjzhxQv+tkIRhO9jtE7HnpRYEKPg==",
+                            PhoneNumber = "15137667148",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "6db73cb7-50d8-4d9d-abce-d50076103033",
+                            TwoFactorEnabled = false,
+                            UserName = "horaoen"
+                        },
+                        new
+                        {
+                            Id = "ede90e59-9ab5-44f1-a7f3-74ae3e23379e",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "299b58ff-8688-4384-9fd6-e143d4e1c061",
+                            Email = "bleso624@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            MaxBooks = 0,
+                            MaxDays = 0,
+                            NormalizedEmail = "BLESO624@GMAIL.COM",
+                            NormalizedUserName = "BLESO",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEWgIl12qUjaUiJMvexxWqqj9mB9lIwKtYJW/xyLao5LQOrEZRfNgdNx3WZGa+SGWg==",
+                            PhoneNumber = "15137667148",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "2d51c663-db88-4eda-8300-37a96e2efa8d",
+                            TwoFactorEnabled = false,
+                            UserName = "bleso"
+                        },
+                        new
+                        {
+                            Id = "aab6762a-a10b-48b2-bd6c-14d7be4548eb",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "df6a50fb-0778-4f2b-837e-ba821dcfc789",
+                            Email = "2495644988@qq.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            MaxBooks = 0,
+                            MaxDays = 0,
+                            NormalizedEmail = "2495644988@qq.com",
+                            NormalizedUserName = "FHR",
+                            PasswordHash = "AQAAAAEAACcQAAAAENiEE9uUNd/PHYrX+7DSK8MbLeLHI/EhFDeF7SXFbU/G/WuyAzKNO2FKlDpWJZhPwA==",
+                            PhoneNumber = "15137667148",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "1d8a312e-8e52-4e2c-b951-ff16862d5a47",
+                            TwoFactorEnabled = false,
+                            UserName = "fhr"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -1207,6 +1266,29 @@ namespace BMS.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "5d5fcf5e-1619-4a58-bef7-ecd31fd9a38e",
+                            ConcurrencyStamp = "eb14fbfa-823f-4687-8a92-9665573bd1d6",
+                            Name = "SuperAdmin",
+                            NormalizedName = "SUPERADMIN"
+                        },
+                        new
+                        {
+                            Id = "d2c594b2-3a84-4d28-9639-44549de6d704",
+                            ConcurrencyStamp = "461aec14-3637-46c9-bd21-2c4b2a5adb03",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "e1badac2-52ef-46b6-978c-de38ca1490c9",
+                            ConcurrencyStamp = "681dbdfd-7e32-48f5-be6a-009266384216",
+                            Name = "Borrower",
+                            NormalizedName = "BORROWER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1290,6 +1372,23 @@ namespace BMS.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "fbae1800-3f60-497c-b66a-723b83c06915",
+                            RoleId = "5d5fcf5e-1619-4a58-bef7-ecd31fd9a38e"
+                        },
+                        new
+                        {
+                            UserId = "ede90e59-9ab5-44f1-a7f3-74ae3e23379e",
+                            RoleId = "d2c594b2-3a84-4d28-9639-44549de6d704"
+                        },
+                        new
+                        {
+                            UserId = "aab6762a-a10b-48b2-bd6c-14d7be4548eb",
+                            RoleId = "e1badac2-52ef-46b6-978c-de38ca1490c9"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

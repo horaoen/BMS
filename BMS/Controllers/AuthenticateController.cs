@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -36,7 +36,7 @@ namespace BMS.Controllers
         }
 
         /// <summary>
-        /// æ³¨å†Œ
+        /// ×¢²á
         /// </summary>
         /// <param name="registerDto"></param>
         /// <returns></returns>
@@ -60,7 +60,7 @@ namespace BMS.Controllers
         }
 
         /// <summary>
-        /// ç™»å½•
+        /// µÇÂ¼
         /// </summary>
         /// <param name="loginDto"></param>
         /// <returns></returns>

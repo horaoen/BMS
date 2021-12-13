@@ -26,6 +26,7 @@
 
     <ItemGroup>
       <Folder Include="Database\MockData" />
+      <Folder Include="Policy" />
     </ItemGroup>
 
 </Project>

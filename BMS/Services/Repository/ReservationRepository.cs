@@ -1,6 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using BMS.Database;
+using BMS.Models.Entities;
 using BMS.Services.IRepository;
+using Microsoft.EntityFrameworkCore;
 
 namespace BMS.Services.Repository
 {
@@ -16,6 +20,11 @@ namespace BMS.Services.Repository
         public async Task<bool> SaveAsync()
         {
             return (await _context.SaveChangesAsync() >= 0);
+        }
+
+        public async Task<IEnumerable<Reservation>> GetAllReservationAsync()
+        {
+            return await _context.Reservations.ToListAsync();
         }
     }
 }

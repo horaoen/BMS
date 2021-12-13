@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BMS.Dtos;
+using BMS.Helper;
 using BMS.Models.Entities;
 using BMS.ResourceParameters;
 using BMS.Services.IRepository;
@@ -33,9 +34,10 @@ namespace BMS.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetBookTitles([FromQuery] BookTitleResourceParamaters? paramaters)
         {
-            var bookTitlesFromRepo = await _bookTitleRepository.GetBookTitles(paramaters?.Keyword);
+            var bookTitlesFromRepo = await _bookTitleRepository.GetBookTitlesAsync(paramaters?.Keyword);
             if (!bookTitlesFromRepo.Any())
             {
                 return NotFound();
@@ -50,6 +52,7 @@ namespace BMS.Controllers
         /// <param name="bookTitleId"></param>
         /// <returns></returns>
         [HttpGet("{bookTitleId:Guid}", Name = "GetBookTitleById")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetBookTitleById(
             [FromRoute] Guid bookTitleId)
         {
@@ -68,6 +71,7 @@ namespace BMS.Controllers
         /// <param name="bookTitleForCreationDto"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> CreateBookTitle(
             [FromBody] BookTitleForCreationDto bookTitleForCreationDto)
@@ -87,7 +91,7 @@ namespace BMS.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPatch]
-        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> PartiallyUpdateBookTitle(
             [FromRoute] Guid bookTitleId,
             [FromBody] JsonPatchDocument<BookTitleForUpdateDto> patchDocument)
@@ -110,7 +114,13 @@ namespace BMS.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// 删除书目
+        /// </summary>
+        /// <param name="bookTitleId"></param>
+        /// <returns></returns>
         [HttpDelete("{bookTitleId}")]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> DeleteBookTitle([FromRoute] Guid bookTitleId)
         {
             var bookTitleFromRepo = await _bookTitleRepository.GetBookTitleByIdAsync(bookTitleId);
@@ -122,6 +132,26 @@ namespace BMS.Controllers
             await _bookTitleRepository.SaveAsync();
             return NoContent();
         }
-        
+
+        /// <summary>
+        /// 批量删除书目
+        /// </summary>
+        /// <param name="bookTitleIds"></param>
+        /// <returns></returns>
+        [HttpDelete("({bookTitleIds})")]
+        [Authorize(Roles = "SuperAdmin")]
+        public async Task<IActionResult> DeleteBookTitleByIds(
+            [ModelBinder(BinderType = typeof(ArrayModelBinder))][FromRoute] IEnumerable<Guid>? bookTitleIds)
+        {
+            if (bookTitleIds == null)
+            {
+                return BadRequest();
+            }
+
+            var bookTitlesFromRepo = await _bookTitleRepository.GetBookTitleByIdsAsync(bookTitleIds);
+            _bookTitleRepository.DeleteBookTitles(bookTitlesFromRepo);
+            await _bookTitleRepository.SaveAsync();
+            return NoContent();
+        }
     }
 }
