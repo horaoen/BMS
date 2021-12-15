@@ -86,33 +86,30 @@ namespace BMS.Controllers
                 _mapper.Map<BookTitleDto>(bookTitle));
         }
 
-        /// <summary>
-        /// 更新书目信息
-        /// </summary>
-        /// <returns></returns>
-        [HttpPatch]
-        [Authorize(Roles = "SuperAdmin")]
-        public async Task<IActionResult> PartiallyUpdateBookTitle(
-            [FromRoute] Guid bookTitleId,
-            [FromBody] JsonPatchDocument<BookTitleForUpdateDto> patchDocument)
-        {
-            var bookTitleFromRepo = await _bookTitleRepository.GetBookTitleByIdAsync(bookTitleId);
-            if (bookTitleFromRepo == null)
-            {
-                return NotFound("不存在该书目");
-            }
-
-            var bookTitleToPacth = _mapper.Map<BookTitleForUpdateDto>(bookTitleFromRepo);
-            patchDocument.ApplyTo((bookTitleToPacth), ModelState);
-
-            if (!TryValidateModel(bookTitleToPacth))
-            {
-                return ValidationProblem(ModelState);
-            }
-            _mapper.Map(bookTitleToPacth, bookTitleFromRepo); 
-            await _bookTitleRepository.SaveAsync();
-            return NoContent();
-        }
+        
+        // [HttpPatch]
+        // [Authorize(Roles = "SuperAdmin")]
+        // public async Task<IActionResult> PartiallyUpdateBookTitle(
+        //     [FromRoute] Guid bookTitleId,
+        //     [FromBody] JsonPatchDocument<BookTitleForUpdateDto> patchDocument)
+        // {
+        //     var bookTitleFromRepo = await _bookTitleRepository.GetBookTitleByIdAsync(bookTitleId);
+        //     if (bookTitleFromRepo == null)
+        //     {
+        //         return NotFound("不存在该书目");
+        //     }
+        //
+        //     var bookTitleToPacth = _mapper.Map<BookTitleForUpdateDto>(bookTitleFromRepo);
+        //     patchDocument.ApplyTo((bookTitleToPacth), ModelState);
+        //
+        //     if (!TryValidateModel(bookTitleToPacth))
+        //     {
+        //         return ValidationProblem(ModelState);
+        //     }
+        //     _mapper.Map(bookTitleToPacth, bookTitleFromRepo); 
+        //     await _bookTitleRepository.SaveAsync();
+        //     return NoContent();
+        // }
 
         /// <summary>
         /// 删除书目
