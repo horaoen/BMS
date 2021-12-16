@@ -53,6 +53,7 @@ namespace BMS.Services
                 _reservationRepository.DeleteReservation(reservationFromRepo);
             }
 
+            await _reservationRepository.SaveAsync();
             return true;
         }
         

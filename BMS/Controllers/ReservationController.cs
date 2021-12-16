@@ -69,6 +69,7 @@ namespace BMS.Controllers
             }
             reservation.BorrowerId = Guid.Parse(userId);
             await _reservationRepository.AddReservationAsync(reservation);
+            await _reservationRepository.SaveAsync();
             return NoContent();
         }
 

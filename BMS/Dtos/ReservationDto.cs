@@ -6,7 +6,7 @@ namespace BMS.Dtos
     {
         public Guid Id { get; set; }
         
-        public Guid Borrower { get; set; }
+        public Guid BorrowerId { get; set; }
         
         public Guid BookTitleId { get; set; }
         
