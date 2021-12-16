@@ -86,7 +86,12 @@ namespace BMS.Controllers
                 _mapper.Map<BookTitleDto>(bookTitle));
         }
 
-        
+        /// <summary>
+        /// 更新书目
+        /// </summary>
+        /// <param name="bookTitleId"></param>
+        /// <param name="patchDocument"></param>
+        /// <returns></returns>
         [HttpPatch]
         [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> PartiallyUpdateBookTitle(

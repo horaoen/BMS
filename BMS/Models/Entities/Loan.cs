@@ -10,13 +10,16 @@ namespace BMS.Models.Entities
         [Key] 
         public Guid Id { get; set; }
         
-        [Required]
+        [ForeignKey("BorrowerId")]
         public User Borrower { get; set; }
         
-        [Required]
+        public string BorrowerId { get; set; }
+        
+        [ForeignKey("LoanBookId")]
         public BookTitleItem LoanBook { get; set; }
         
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid LoanBookId { get; set; }
+        
         public DateTime LoanDate { get; set; }
         
         [Required]

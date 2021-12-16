@@ -1,7 +1,12 @@
-﻿namespace BMS.Profiles
+﻿using AutoMapper;
+
+namespace BMS.Profiles
 {
-    public class LoanProfile
+    public class LoanProfile : Profile
     {
-        
+        public LoanProfile()
+        {
+            
+        }
     }
 }

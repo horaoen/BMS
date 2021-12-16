@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using BMS.Database;
 using BMS.Models.Entities;
 using BMS.Services.IRepository;
 
@@ -6,14 +7,19 @@ namespace BMS.Services.Repository
 {
     public class LoanRepository : ILoanRepository
     {
-        public Task AddLoanAsync(Loan loan)
+        private readonly AppDbContext _context;
+        public LoanRepository(AppDbContext context)
         {
-            throw new System.NotImplementedException();
+            _context = context;
+        }
+        public async Task AddLoanAsync(Loan loan)
+        {
+            await _context.Loans.AddAsync(loan);
         }
 
-        public Task<bool> SaveAsync()
+        public async Task<bool> SaveAsync()
         {
-            throw new System.NotImplementedException();
+            return (await _context.SaveChangesAsync() >= 0);
         }
     }
 }
