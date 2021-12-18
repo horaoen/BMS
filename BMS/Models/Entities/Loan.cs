@@ -8,11 +8,12 @@ namespace BMS.Models.Entities
     public class Loan
     {
         [Key] 
-        public Guid Id { get; set; }
+        public Guid Id { get; set; }    
         
         [ForeignKey("BorrowerId")]
         public User Borrower { get; set; }
         
+        [Required]
         public string BorrowerId { get; set; }
         
         [ForeignKey("LoanBookId")]

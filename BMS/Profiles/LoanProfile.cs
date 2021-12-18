@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using BMS.Dtos;
+using BMS.Models.Entities;
 
 namespace BMS.Profiles
 {
@@ -6,7 +8,7 @@ namespace BMS.Profiles
     {
         public LoanProfile()
         {
-            
+            CreateMap<Loan, LoanDto>();
         }
     }
 }

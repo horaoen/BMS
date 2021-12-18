@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using BMS.Database;
 using BMS.Models.Entities;
@@ -14,9 +15,9 @@ namespace BMS.Services.Repository
             _context = context;
         }
         
-        public async Task<BookTitleItem?> FindIsNotLoanedBookAsync()
+        public async Task<BookTitleItem?> FindIsNotLoanedBookAsync(Guid bookTitleId)
         {
-            return await _context.BookTitleItems.FirstOrDefaultAsync(item => item.IsBorrowed == false);
+            return await _context.BookTitleItems.FirstOrDefaultAsync(item => item.IsBorrowed == false && item.BookTitleId == bookTitleId);
         }
     }
 }

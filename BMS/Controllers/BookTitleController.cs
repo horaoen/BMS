@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BMS.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/booktitles")]
     [ApiController]
     public class BookTitleController : ControllerBase
     {

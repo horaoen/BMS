@@ -1,37 +1,41 @@
 ﻿using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BMS.Models.Entities;
 using BMS.Services.IRepository;
+using Microsoft.AspNetCore.Http;
 
 namespace BMS.Services
 {
-    public class ReservationService
+    public class ReservationService : BaseService
     {
         private readonly IReservationRepository _reservationRepository;
         private readonly IBookTitleRepository _bookTitleRepository;
         private readonly ILoanRepository _loanRepository;
         private readonly IBookTitleItemRepository _bookTitleItemRepository;
+
         public ReservationService(
-            IReservationRepository reservationRepository,
+            IHttpContextAccessor httpContextAccessor,
+            ILoanRepository loanRepository,
             IBookTitleRepository bookTitleRepository,
-            ILoanRepository loanRepository, 
-            IBookTitleItemRepository bookTitleItemRepository)
+            IBookTitleItemRepository bookTitleItemRepository,
+            IReservationRepository reservationRepository) : base(httpContextAccessor)
         {
+            _loanRepository = loanRepository;
             _reservationRepository = reservationRepository;
             _bookTitleRepository = bookTitleRepository;
-            _loanRepository = loanRepository;
             _bookTitleItemRepository = bookTitleItemRepository;
         }
-
         public async Task<bool> HandleReservation(Guid reservationsId, bool isLoan)
         {
             var reservationFromRepo = await _reservationRepository.GetReservationByIdAsync(reservationsId);
             if (reservationFromRepo == null) return false;
             if (isLoan)
             {
-                var loanBook = await _bookTitleItemRepository.FindIsNotLoanedBookAsync();
+                var loanBook = await _bookTitleItemRepository.FindIsNotLoanedBookAsync(reservationFromRepo.BookTitleId);
                 if (loanBook == null) return false;
 
+                loanBook.IsBorrowed = true;
                 var loanDate = new DateTime();
                 var returnDate = loanDate + TimeSpan.FromDays(reservationFromRepo.LoanTime);
 
@@ -43,7 +47,9 @@ namespace BMS.Services
                     LoanDate = loanDate,
                     ReturnDate = returnDate
                 };
-                
+                var loanedBookTitle = await _bookTitleRepository.GetBookTitleByIdAsync(reservationFromRepo.BookTitleId);
+                if (loanedBookTitle == null) return false;
+                loanedBookTitle.BorrowedNumber++;
                 _reservationRepository.DeleteReservation(reservationFromRepo);
 
                 await _loanRepository.AddLoanAsync(loan);
@@ -56,6 +62,7 @@ namespace BMS.Services
             await _reservationRepository.SaveAsync();
             return true;
         }
+
         
     }
 }

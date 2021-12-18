@@ -17,7 +17,7 @@ using Microsoft.AspNetCore.Server.HttpSys;
 namespace BMS.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/reservation")]
     public class ReservationController : ControllerBase
     {
         private readonly ReservationService _reservationService;
@@ -62,18 +62,17 @@ namespace BMS.Controllers
         public async Task<IActionResult> AddReservation([FromBody] ReservationForCreation reservationForCreation)
         {
             var reservation = _mapper.Map<Reservation>(reservationForCreation);
-            var userId = _httpContextAccessor?.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (String.IsNullOrWhiteSpace(userId))
+            var userId = _reservationService.GetUserId();
+            if (userId == null)
             {
                 return BadRequest();
             }
-            reservation.BorrowerId = Guid.Parse(userId);
+            reservation.BorrowerId = userId.Value;
             await _reservationRepository.AddReservationAsync(reservation);
             await _reservationRepository.SaveAsync();
             return NoContent();
         }
-
-      
+        
         
         /// <summary>
         /// 处理预约
@@ -87,16 +86,15 @@ namespace BMS.Controllers
             [FromRoute] Guid reservationId, 
             [FromBody] bool? isLoan)
         {
-            var role = _httpContextAccessor?.HttpContext?.User.FindFirst(ClaimTypes.Role)?.Value;
+            var role = _reservationService.GetUserRole();
             if (role == "Borrower")
             {
-                var userId = _httpContextAccessor?.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                if (String.IsNullOrWhiteSpace(userId))
+                var userId = _reservationService.GetUserId();
+                if (userId == null)
                 {
                     return BadRequest();
                 }
-
-                var reservationFromRepo = await _reservationRepository.GetReservationByBorrowerIdAsync(Guid.Parse(userId));
+                var reservationFromRepo = await _reservationRepository.GetReservationByBorrowerIdAsync(userId.Value);
                 if (reservationFromRepo == null) return BadRequest("请检查reservationId是否正确");
                 _reservationRepository.DeleteReservation(reservationFromRepo);
                 return NoContent();
