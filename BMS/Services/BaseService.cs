@@ -12,11 +12,11 @@ namespace BMS.Services
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public Guid? GetUserId()
+        public string? GetUserId()
         {
             var userId = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (userId == null) return null;
-            return Guid.Parse(userId);
+            return userId;
         }
 
         public string? GetUserRole()

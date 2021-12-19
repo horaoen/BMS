@@ -13,6 +13,6 @@ namespace BMS.Services.IRepository
         Task<Reservation?> GetReservationByIdAsync(Guid reservationId);
         Task AddReservationAsync(Reservation reservation);
         void DeleteReservation(Reservation reservation);
-        Task<Reservation?> GetReservationByBorrowerIdAsync(Guid borrowerId);
+        Task<IEnumerable<Reservation>> GetReservationsByBorrowerIdAsync(string borrowerId);
     }
 }

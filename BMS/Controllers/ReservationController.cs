@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using BMS.Dtos;
@@ -13,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.HttpSys;
+using Microsoft.OpenApi.Validations;
 
 namespace BMS.Controllers
 {
@@ -41,15 +41,40 @@ namespace BMS.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [AllowAnonymous]
-        public async Task<IActionResult> GetReservations([FromQuery] string? keyword)
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> GetReservations()
         {
+            var userRole = _reservationService.GetUserRole();
+            if (string.IsNullOrWhiteSpace(userRole)) return BadRequest();
+            if (userRole == "Borrower")
+            {
+                var borrowerId = _reservationService.GetUserId();
+                if (string.IsNullOrWhiteSpace(borrowerId))
+                {
+                    return BadRequest();
+                }
+                var reservationsFromRepoByBorrowerId = await _reservationRepository.GetReservationsByBorrowerIdAsync(borrowerId);
+                return Ok(_mapper.Map<IEnumerable<ReservationDto>>(reservationsFromRepoByBorrowerId));
+            }
             var reservationsFromRepo = await _reservationRepository.GetAllReservationsAsync();
             if (!reservationsFromRepo.Any())
             {
                 return NotFound("未找到预约信息");
             }
             return Ok(_mapper.Map<IEnumerable<ReservationDto>>(reservationsFromRepo));
+        }
+
+
+        /// <summary>
+        /// 通过reservationId获取单条预约信息
+        /// </summary>
+        /// <param name="reservationId"></param>
+        /// <returns></returns>
+        [HttpGet("{reservationId}", Name = "GetReservationById")]
+        [Authorize(Roles = "SuperAdmin Admin")]
+        public async Task<IActionResult> GetReservationById([FromRoute] Guid reservationId)
+        {
+            return Ok(_mapper.Map<ReservationDto>(await _reservationRepository.GetReservationByIdAsync(reservationId)));
         }
 
         /// <summary>
@@ -63,16 +88,19 @@ namespace BMS.Controllers
         {
             var reservation = _mapper.Map<Reservation>(reservationForCreation);
             var userId = _reservationService.GetUserId();
-            if (userId == null)
+            if (string.IsNullOrWhiteSpace(userId))
             {
                 return BadRequest();
             }
-            reservation.BorrowerId = userId.Value;
+
+            reservation.BorrowerId = userId;
             await _reservationRepository.AddReservationAsync(reservation);
             await _reservationRepository.SaveAsync();
-            return NoContent();
+            return CreatedAtAction(
+                "GetReservationById",
+                new { reservationId = reservation.Id },
+                _mapper.Map<ReservationDto>(reservation));
         }
-        
         
         /// <summary>
         /// 处理预约
@@ -94,10 +122,11 @@ namespace BMS.Controllers
                 {
                     return BadRequest();
                 }
-                var reservationFromRepo = await _reservationRepository.GetReservationByBorrowerIdAsync(userId.Value);
-                if (reservationFromRepo == null) return BadRequest("请检查reservationId是否正确");
+                var reservationsFromRepo = await _reservationRepository.GetReservationsByBorrowerIdAsync(userId);
+                var reservationFromRepo = reservationsFromRepo.FirstOrDefault(reservation => reservation.Id == reservationId);
+                if (reservationFromRepo == null) return NotFound("没有这条预约信息");
                 _reservationRepository.DeleteReservation(reservationFromRepo);
-                return NoContent();
+                return Ok("取消预约成功");
             }
 
             if (isLoan == null)
@@ -106,11 +135,11 @@ namespace BMS.Controllers
             }
             
             var res = await _reservationService.HandleReservation(reservationId, isLoan.Value);
-            if (res)
+            if (res == false)
             {
                 return BadRequest("请检查reservationId是否正确");
             }
-            else return NoContent();
+            else return Ok("预约成功");
         }
     }
 }

@@ -92,7 +92,8 @@ namespace BMS.Database
                 NormalizedUserName = "horaoen".ToUpper(),
                 Email = "horaoen@gmail.com",
                 NormalizedEmail = "horaoen@gmail.com".ToUpper(),
-                PhoneNumber = "15137667148"
+                PhoneNumber = "15137667148",
+                Fine = 0
             };
             var adminUser = new User()
             {
@@ -102,6 +103,7 @@ namespace BMS.Database
                 Email = "bleso624@gmail.com",
                 NormalizedEmail = "bleso624@gmail.com".ToUpper(),
                 PhoneNumber = "15137667148",
+                Fine = 0
             };
             var borrowerUser = new User()
             {
@@ -110,7 +112,8 @@ namespace BMS.Database
                 NormalizedUserName = "fhr".ToUpper(),
                 Email = "2495644988@qq.com",
                 NormalizedEmail = "2495644988@qq.com",
-                PhoneNumber = "15137667148"
+                PhoneNumber = "15137667148",
+                Fine = 0
             };
 
             //设置用户密码

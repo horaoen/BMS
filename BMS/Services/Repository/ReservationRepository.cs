@@ -44,9 +44,9 @@ namespace BMS.Services.Repository
             _context.Reservations.Remove(reservation);
         }
 
-        public async Task<Reservation?> GetReservationByBorrowerIdAsync(Guid borrowerId)
+        public async Task<IEnumerable<Reservation>> GetReservationsByBorrowerIdAsync(string borrowerId)
         {
-            return await _context.Reservations.FirstOrDefaultAsync(reservation => reservation.BorrowerId == borrowerId);
+           return await _context.Reservations.Where(reservation => reservation.BorrowerId == borrowerId).ToListAsync();
         }
     }
 }

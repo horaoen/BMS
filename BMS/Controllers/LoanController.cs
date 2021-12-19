@@ -46,15 +46,26 @@ namespace BMS.Controllers
             if (userRole == "Borrower")
             {
                 var userId = _loanService.GetUserId();
-                if (userId == null) return BadRequest();
+                if (string.IsNullOrWhiteSpace(userId)) return BadRequest();
                 
-                var loansFromRepo = await _loanRepository.GetLoansByBorrowerId(userId.Value.ToString());
+                var loansFromRepo = await _loanRepository.GetLoansByBorrowerId(userId);
                 return Ok(_mapper.Map<IEnumerable<LoanDto>>(loansFromRepo));
             }
 
             return Ok(_mapper.Map<IEnumerable<LoanDto>>(await _loanRepository.GetLoansByBorrowerId("")));
         }
 
+        /// <summary>
+        /// 通过loanId获取单条借阅记录
+        /// </summary>
+        /// <param name="loanId"></param>
+        /// <returns></returns>
+        [HttpGet("{loanId:Guid}")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> GetLoanById([FromRoute] Guid loanId)
+        {
+            return Ok(_mapper.Map<LoanDto>(await _loanRepository.GetLoanByIdAsync(loanId)));
+        }
         
         /// <summary>
         /// 处理归还书籍
@@ -66,6 +77,7 @@ namespace BMS.Controllers
         public async Task<IActionResult> ReturnBook([FromRoute] Guid loanId)
         {
             var res = await _loanService.HandleReturn(loanId);
+            if (res == false) return BadRequest();
             return NoContent();
         }
     }

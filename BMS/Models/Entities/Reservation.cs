@@ -12,7 +12,7 @@ namespace BMS.Models.Entities
         public Guid BookTitleId { get; set; }
         
         [Required]
-        public Guid BorrowerId { get; set; }
+        public string BorrowerId { get; set; }
         
         public int LoanTime { get; set; }
     }

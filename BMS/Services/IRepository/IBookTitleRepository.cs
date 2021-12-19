@@ -13,8 +13,6 @@ namespace BMS.Services.IRepository
         Task AddBookTitleAsync(BookTitle bookTitle);
         Task<bool> SaveAsync();
         void DeleteBookTitle(BookTitle bookTitle);
-        void DeleteBookTitleItem(BookTitleItem bookTitleItem);
-        Task<BookTitleItem?> GetBookTitleItem(Guid bookTitleItemId);
         Task<IEnumerable<BookTitle>> GetBookTitleByIdsAsync(IEnumerable<Guid> bookTitleIds);
         void DeleteBookTitles(IEnumerable<BookTitle> bookTitles);
     }

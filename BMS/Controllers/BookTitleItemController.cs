@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using BMS.Services;
 using BMS.Services.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,14 +12,20 @@ namespace BMS.Controllers
     [Route("api/booktitles/{bookTitleId}/bookTitleItems")]
     public class BookItemController : ControllerBase
     {
+        private readonly BookTitleItemService _bookTitleItemService;
         private readonly IBookTitleRepository _bookTitleRepository;
         private readonly IMapper _mapper;
+        private readonly IBookTitleItemRepository _bookTitleItemRepository;
         public BookItemController(
+            BookTitleItemService bookTitleItemService,
             IBookTitleRepository bookTitleRepository,
-            IMapper mapper)
+            IMapper mapper,
+            IBookTitleItemRepository bookTitleItemRepository)
         {
+            _bookTitleItemService = bookTitleItemService;
             _bookTitleRepository = bookTitleRepository;
             _mapper = mapper;
+            _bookTitleItemRepository = bookTitleItemRepository;
         }
 
         /// <summary>
@@ -31,12 +39,22 @@ namespace BMS.Controllers
             [FromRoute] Guid bookTitleId,
             [FromRoute] Guid bookTitleItemId)
         {
-            var bookTitleItem = await _bookTitleRepository.GetBookTitleItem(bookTitleItemId);
+            var bookTitleFromRepo = await _bookTitleRepository.GetBookTitleByIdAsync(bookTitleId);
+            
+            if (bookTitleFromRepo == null)
+            {
+                return BadRequest("没有该书目");
+            }
+
+            var bookTitleItem =
+                bookTitleFromRepo.BookItems
+                .FirstOrDefault(bookTitleItem => bookTitleItem.Id == bookTitleItemId);
+
             if (bookTitleItem == null)
             {
-                return NotFound("未找到该书");
+                return BadRequest("没有该书籍");
             }
-            _bookTitleRepository.DeleteBookTitleItem(bookTitleItem);
+            await _bookTitleItemService.DeleteBookTitleItem(bookTitleItem);
             return NoContent();
         }
     }

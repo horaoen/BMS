@@ -54,16 +54,7 @@ namespace BMS.Services.Repository
         {
             _context.BookTitles.Remove(bookTitle);
         }
-
-        public void DeleteBookTitleItem(BookTitleItem bookTitleItem)
-        {
-            _context.BookTitleItems.Remove(bookTitleItem);
-        }
-
-        public async Task<BookTitleItem?> GetBookTitleItem(Guid bookTitleItemId)
-        {
-            return await _context.BookTitleItems.FirstOrDefaultAsync(bookTitleItem => bookTitleItem.Id == bookTitleItemId);
-        }
+        
 
         public async Task<IEnumerable<BookTitle>> GetBookTitleByIdsAsync(IEnumerable<Guid> bookTitleIds)
         {
@@ -74,5 +65,6 @@ namespace BMS.Services.Repository
         {
             _context.BookTitles.RemoveRange(bookTitles);
         }
+        
     }
 }

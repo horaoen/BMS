@@ -130,6 +130,8 @@ services.AddSwaggerGen(options =>
     services.AddTransient<IBookTitleItemRepository, BookTitleItemRepository>();
     services.AddTransient<ReservationService>();
     services.AddTransient<LoanService>();
+    services.AddTransient<BookTitleService>();
+    services.AddTransient<BookTitleItemService>();
 }
 
 var app = builder.Build();

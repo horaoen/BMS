@@ -8,6 +8,7 @@ using BMS.Helper;
 using BMS.Models.Entities;
 using BMS.ResourceParameters;
 using BMS.Services.IRepository;
+using BMS.Services.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -20,13 +21,16 @@ namespace BMS.Controllers
     {
         private readonly IBookTitleRepository _bookTitleRepository;
         private readonly IMapper _mapper;
+        private readonly BookTitleService _bookTitleService;
         
         public BookTitleController(
             IBookTitleRepository bookTitleRepository,
-            IMapper mapper)
+            IMapper mapper,
+            BookTitleService bookTitleService)
         {
             _bookTitleRepository = bookTitleRepository;
             _mapper = mapper;
+            _bookTitleService = bookTitleService;
         }
 
         /// <summary>
@@ -72,7 +76,6 @@ namespace BMS.Controllers
         /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = "SuperAdmin")]
-        [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> CreateBookTitle(
             [FromBody] BookTitleForCreationDto bookTitleForCreationDto)
         {
@@ -121,7 +124,7 @@ namespace BMS.Controllers
         /// </summary>
         /// <param name="bookTitleId"></param>
         /// <returns></returns>
-        [HttpDelete("{bookTitleId}")]
+        [HttpDelete("{bookTitleId:Guid}")]
         [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> DeleteBookTitle([FromRoute] Guid bookTitleId)
         {
@@ -130,8 +133,7 @@ namespace BMS.Controllers
             {
                 return NotFound("未找到该书目");
             }
-            _bookTitleRepository.DeleteBookTitle(bookTitleFromRepo);
-            await _bookTitleRepository.SaveAsync();
+            await _bookTitleService.DeleteBookTitle(bookTitleFromRepo);
             return NoContent();
         }
 
