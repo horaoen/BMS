@@ -23,7 +23,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test
     - name: Docker Login
       uses: docker/login-action@v1.10.0
       with:
