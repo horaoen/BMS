@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0f5773a9_002D0782_002D4595_002Dab09_002Da72a4418870d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::31566929-3750-4402-89D0-636781F4037F::net6.0::Test.ControllerTests.BookTitleControllerTests.GetBookTitlesTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::31566929-3750-4402-89D0-636781F4037F::net6.0::Test.ControllerTests.ReservationControllerTests.GetReservationsTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::31566929-3750-4402-89D0-636781F4037F::net6.0::Test.ControllerTests.AutenticateControllerTests.RegisterTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::31566929-3750-4402-89D0-636781F4037F::net6.0::Test.ControllerTests.AutenticateControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::31566929-3750-4402-89D0-636781F4037F::net6.0::Test.ControllerTests.BookTitleControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::31566929-3750-4402-89D0-636781F4037F::net6.0::Test.ControllerTests.LoanControllerTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
