@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BMS.Services;
 using BMS.Services.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BMS.Controllers
@@ -35,6 +36,7 @@ namespace BMS.Controllers
         /// <param name="bookTitleItemId"></param>
         /// <returns></returns>
         [HttpDelete("{bookTitleItemId}")]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> DeleteBookTitleItem(
             [FromRoute] Guid bookTitleId,
             [FromRoute] Guid bookTitleItemId)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BMS.Dtos;
@@ -38,21 +39,21 @@ namespace BMS.Controllers
         public async Task<IActionResult> GetLoans()
         {
             var userRole = _loanService.GetUserRole();
-            if (!string.IsNullOrWhiteSpace(userRole))
+            if (string.IsNullOrWhiteSpace(userRole))
             {
                 return BadRequest();
-            }
+            } 
 
             if (userRole == "Borrower")
             {
                 var userId = _loanService.GetUserId();
                 if (string.IsNullOrWhiteSpace(userId)) return BadRequest();
                 
-                var loansFromRepo = await _loanRepository.GetLoansByBorrowerId(userId);
+                var loansFromRepo = await _loanRepository.GetLoans(userId);
                 return Ok(_mapper.Map<IEnumerable<LoanDto>>(loansFromRepo));
             }
 
-            return Ok(_mapper.Map<IEnumerable<LoanDto>>(await _loanRepository.GetLoansByBorrowerId("")));
+            return Ok(_mapper.Map<IEnumerable<LoanDto>>(await _loanRepository.GetLoans("")));
         }
 
         /// <summary>
@@ -64,6 +65,18 @@ namespace BMS.Controllers
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> GetLoanById([FromRoute] Guid loanId)
         {
+            var userRole = _loanService.GetUserRole();
+            if (userRole == "Borrower")
+            {
+                var userId = _loanService.GetUserId();
+                var borrowerLoansFromRepo = await _loanRepository.GetLoans(userId);
+                if (borrowerLoansFromRepo.Any())
+                {
+                    return Ok(_mapper.Map<LoanDto>(borrowerLoansFromRepo));
+                }
+
+                return NotFound();
+            }
             return Ok(_mapper.Map<LoanDto>(await _loanRepository.GetLoanByIdAsync(loanId)));
         }
         
@@ -73,7 +86,7 @@ namespace BMS.Controllers
         /// <param name="loanId"></param>
         /// <returns></returns>
         [HttpDelete("{loanId:Guid}")]
-        [Authorize(Roles = "SuperAdmin Admin")]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> ReturnBook([FromRoute] Guid loanId)
         {
             var res = await _loanService.HandleReturn(loanId);

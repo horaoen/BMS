@@ -75,7 +75,7 @@ namespace BMS.Controllers
         /// <param name="bookTitleForCreationDto"></param>
         /// <returns></returns>
         [HttpPost]
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> CreateBookTitle(
             [FromBody] BookTitleForCreationDto bookTitleForCreationDto)
         {
@@ -124,7 +124,7 @@ namespace BMS.Controllers
         /// </summary>
         /// <param name="bookTitleId"></param>
         /// <returns></returns>
-        [HttpDelete("{bookTitleId}")]
+        [HttpDelete("{bookTitleId:Guid}")]
         [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> DeleteBookTitle([FromRoute] Guid bookTitleId)
         {

@@ -13,6 +13,6 @@ namespace BMS.Services.IRepository
         Task<bool> SaveAsync();
         Task<Loan?> GetLoanByIdAsync(Guid loanId);
         void DeleteLoan(Loan loan);
-        Task<IEnumerable<Loan>> GetLoansByBorrowerId(string? borrowerId);
+        Task<IEnumerable<Loan>> GetLoans(string? borrowerId);
     }
 }

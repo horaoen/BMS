@@ -17,7 +17,7 @@ using Microsoft.OpenApi.Validations;
 namespace BMS.Controllers
 {
     [ApiController]
-    [Route("api/reservation")]
+    [Route("api/reservations")]
     public class ReservationController : ControllerBase
     {
         private readonly ReservationService _reservationService;
@@ -70,11 +70,13 @@ namespace BMS.Controllers
         /// </summary>
         /// <param name="reservationId"></param>
         /// <returns></returns>
-        [HttpGet("{reservationId}", Name = "GetReservationById")]
-        [Authorize(Roles = "SuperAdmin Admin")]
+        [HttpGet("{reservationId:Guid}", Name = "GetReservationById")]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> GetReservationById([FromRoute] Guid reservationId)
         {
-            return Ok(_mapper.Map<ReservationDto>(await _reservationRepository.GetReservationByIdAsync(reservationId)));
+            var reservationFromRepo = await _reservationRepository.GetReservationByIdAsync(reservationId);
+            if (reservationFromRepo == null) return NotFound("没有该reservation");
+            return Ok(_mapper.Map<ReservationDto>(reservationFromRepo));
         }
 
         /// <summary>
@@ -109,7 +111,7 @@ namespace BMS.Controllers
         /// <param name="isLoan"></param>
         /// <returns></returns>
         [HttpDelete("{reservationId:Guid}")]
-        [Authorize(Roles = "SuperAdmin Admin")]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> HandleReservation(
             [FromRoute] Guid reservationId, 
             [FromBody] bool? isLoan)

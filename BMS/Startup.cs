@@ -137,10 +137,10 @@ namespace BMS
             services.AddTransient<ILoanRepository, LoanRepository>();
             services.AddTransient<IReservationRepository, ReservationRepository>();
             services.AddTransient<IBookTitleItemRepository, BookTitleItemRepository>();
-            services.AddTransient<ReservationService>();
-            services.AddTransient<LoanService>();
-            services.AddTransient<BookTitleService>();
-            services.AddTransient<BookTitleItemService>();
+            services.AddScoped<ReservationService>();
+            services.AddScoped<LoanService>();
+            services.AddScoped<BookTitleService>();
+            services.AddScoped<BookTitleItemService>();
             #endregion
             
         }

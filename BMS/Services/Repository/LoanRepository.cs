@@ -46,7 +46,7 @@ namespace BMS.Services.Repository
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Loan>> GetLoansByBorrowerId(string? borrowerId)
+        public async Task<IEnumerable<Loan>> GetLoans(string? borrowerId)
         {
             if (String.IsNullOrWhiteSpace(borrowerId)) return await _context.Loans.Take(100).ToListAsync();
             return await _context.Loans.Where(loan => loan.BorrowerId == borrowerId).Take(100).ToListAsync();
