@@ -14,6 +14,7 @@ namespace BMS.Profiles
                     dest => dest.RemaindBook,
                     opt => opt.MapFrom(src => src.TotalNumber - src.BorrowedNumber));
             CreateMap<BookTitle, BookTitleForUpdateDto>();
+            CreateMap<BookTitleForUpdateDto, BookTitle>();
         }
     }
 }

@@ -95,7 +95,7 @@ namespace BMS.Controllers
         /// <param name="bookTitleId"></param>
         /// <param name="patchDocument"></param>
         /// <returns></returns>
-        [HttpPatch]
+        [HttpPatch("{bookTitleId:Guid}")]
         [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> PartiallyUpdateBookTitle(
             [FromRoute] Guid bookTitleId,
@@ -124,7 +124,7 @@ namespace BMS.Controllers
         /// </summary>
         /// <param name="bookTitleId"></param>
         /// <returns></returns>
-        [HttpDelete("{bookTitleId:Guid}")]
+        [HttpDelete("{bookTitleId}")]
         [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> DeleteBookTitle([FromRoute] Guid bookTitleId)
         {
@@ -143,15 +143,9 @@ namespace BMS.Controllers
         /// <param name="bookTitleIds"></param>
         /// <returns></returns>
         [HttpDelete("({bookTitleIds})")]
-        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> DeleteBookTitleByIds(
-            [ModelBinder(BinderType = typeof(ArrayModelBinder))][FromRoute] IEnumerable<Guid>? bookTitleIds)
+            [ModelBinder(BinderType = typeof(ArrayModelBinder))][FromRoute] IEnumerable<Guid> bookTitleIds)
         {
-            if (bookTitleIds == null)
-            {
-                return BadRequest();
-            }
-
             var bookTitlesFromRepo = await _bookTitleRepository.GetBookTitleByIdsAsync(bookTitleIds);
             _bookTitleRepository.DeleteBookTitles(bookTitlesFromRepo);
             await _bookTitleRepository.SaveAsync();
