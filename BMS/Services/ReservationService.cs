@@ -15,11 +15,10 @@ namespace BMS.Services
         private readonly IBookTitleItemRepository _bookTitleItemRepository;
 
         public ReservationService(
-            IHttpContextAccessor httpContextAccessor,
             ILoanRepository loanRepository,
             IBookTitleRepository bookTitleRepository,
             IBookTitleItemRepository bookTitleItemRepository,
-            IReservationRepository reservationRepository) : base(httpContextAccessor)
+            IReservationRepository reservationRepository)
         {
             _loanRepository = loanRepository;
             _reservationRepository = reservationRepository;

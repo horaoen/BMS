@@ -35,7 +35,7 @@ namespace BMS.Controllers
         /// <param name="bookTitleId"></param>
         /// <param name="bookTitleItemId"></param>
         /// <returns></returns>
-        [HttpDelete("{bookTitleItemId}")]
+        [HttpDelete("{bookTitleItemId:Guid}")]
         [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> DeleteBookTitleItem(
             [FromRoute] Guid bookTitleId,
@@ -48,8 +48,7 @@ namespace BMS.Controllers
                 return BadRequest("没有该书目");
             }
 
-            var bookTitleItem =
-                bookTitleFromRepo.BookItems
+            var bookTitleItem = bookTitleFromRepo.BookItems
                 .FirstOrDefault(bookTitleItem => bookTitleItem.Id == bookTitleItemId);
 
             if (bookTitleItem == null)

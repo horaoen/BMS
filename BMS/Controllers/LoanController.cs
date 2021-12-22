@@ -8,6 +8,7 @@ using BMS.Dtos;
 using BMS.Services;
 using BMS.Services.IRepository;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,16 +19,19 @@ namespace BMS.Controllers
     public class LoanController : ControllerBase
     {
         private readonly ILoanRepository _loanRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IMapper _mapper;
         private readonly LoanService _loanService;
         public LoanController(
             ILoanRepository loanRepository,
             IMapper mapper,
-            LoanService loanService)
+            LoanService loanService,
+            IHttpContextAccessor httpContextAccessor)
         {
             _loanRepository = loanRepository;
             _mapper = mapper;
             _loanService = loanService;
+            _httpContextAccessor = httpContextAccessor;
         }
         
         /// <summary>
@@ -38,7 +42,7 @@ namespace BMS.Controllers
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> GetLoans()
         {
-            var userRole = _loanService.GetUserRole();
+            var userRole = _loanService.GetUserRole(_httpContextAccessor);
             if (string.IsNullOrWhiteSpace(userRole))
             {
                 return BadRequest();
@@ -46,7 +50,7 @@ namespace BMS.Controllers
 
             if (userRole == "Borrower")
             {
-                var userId = _loanService.GetUserId();
+                var userId = _loanService.GetUserId(_httpContextAccessor);
                 if (string.IsNullOrWhiteSpace(userId)) return BadRequest();
                 
                 var loansFromRepo = await _loanRepository.GetLoans(userId);
@@ -65,10 +69,10 @@ namespace BMS.Controllers
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> GetLoanById([FromRoute] Guid loanId)
         {
-            var userRole = _loanService.GetUserRole();
+            var userRole = _loanService.GetUserRole(_httpContextAccessor);
             if (userRole == "Borrower")
             {
-                var userId = _loanService.GetUserId();
+                var userId = _loanService.GetUserId(_httpContextAccessor);
                 var borrowerLoansFromRepo = await _loanRepository.GetLoans(userId);
                 if (borrowerLoansFromRepo.Any())
                 {

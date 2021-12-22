@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -137,10 +138,11 @@ namespace BMS
             services.AddTransient<ILoanRepository, LoanRepository>();
             services.AddTransient<IReservationRepository, ReservationRepository>();
             services.AddTransient<IBookTitleItemRepository, BookTitleItemRepository>();
-            services.AddScoped<ReservationService>();
-            services.AddScoped<LoanService>();
-            services.AddScoped<BookTitleService>();
-            services.AddScoped<BookTitleItemService>();
+            services.AddTransient<ReservationService>();
+            services.AddTransient<LoanService>();
+            services.AddTransient<BookTitleService>();
+            services.AddTransient<BookTitleItemService>();
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
             #endregion
             
         }
@@ -148,15 +150,13 @@ namespace BMS
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseDataInitializer();
-            app.UseRouting();
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "BMS.Swagger");
             });
-
-            app.UseHttpsRedirection();
-
+            
+            app.UseRouting();
             app.UseAuthentication();
 
             app.UseAuthorization();

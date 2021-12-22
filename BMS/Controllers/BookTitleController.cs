@@ -38,7 +38,7 @@ namespace BMS.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> GetBookTitles([FromQuery] BookTitleResourceParamaters? paramaters)
         {
             var bookTitlesFromRepo = await _bookTitleRepository.GetBookTitlesAsync(paramaters?.Keyword);
@@ -75,7 +75,7 @@ namespace BMS.Controllers
         /// <param name="bookTitleForCreationDto"></param>
         /// <returns></returns>
         [HttpPost]
-        [Authorize(Roles = "SuperAdmin, Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public async Task<IActionResult> CreateBookTitle(
             [FromBody] BookTitleForCreationDto bookTitleForCreationDto)
         {

@@ -6,22 +6,16 @@ namespace BMS.Services
 {
     public class BaseService
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        protected BaseService(IHttpContextAccessor httpContextAccessor)
+        public string? GetUserId(IHttpContextAccessor httpContextAccessor)
         {
-            _httpContextAccessor = httpContextAccessor;
-        }
-
-        public string? GetUserId()
-        {
-            var userId = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userId = httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (userId == null) return null;
             return userId;
         }
 
-        public string? GetUserRole()
+        public string? GetUserRole(IHttpContextAccessor httpContextAccessor)
         {
-            var role = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.Role)?.Value;
+            var role = httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.Role)?.Value;
             return role;
         }
     }

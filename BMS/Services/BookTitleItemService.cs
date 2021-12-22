@@ -11,9 +11,8 @@ namespace BMS.Services
         private readonly IBookTitleRepository _bookTitleRepository;
         private readonly IBookTitleItemRepository _bookTitleItemRepository;
         public BookTitleItemService(
-            IHttpContextAccessor httpContextAccessor,
             IBookTitleRepository bookTitleRepository,
-            IBookTitleItemRepository bookTitleItemRepository) : base(httpContextAccessor)
+            IBookTitleItemRepository bookTitleItemRepository)
         {
             _bookTitleRepository = bookTitleRepository;
             _bookTitleItemRepository = bookTitleItemRepository;

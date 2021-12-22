@@ -13,8 +13,7 @@ namespace BMS.Services
         private readonly ILoanRepository _loanRepository;
 
         public LoanService(
-            IHttpContextAccessor httpContextAccessor,
-            ILoanRepository loanRepository) : base(httpContextAccessor)
+            ILoanRepository loanRepository)
         {
             _loanRepository = loanRepository;
         }

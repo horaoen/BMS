@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,8 +10,6 @@ using BMS.Services.IRepository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Server.HttpSys;
-using Microsoft.OpenApi.Validations;
 
 namespace BMS.Controllers
 {
@@ -44,11 +41,11 @@ namespace BMS.Controllers
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> GetReservations()
         {
-            var userRole = _reservationService.GetUserRole();
+            var userRole = _reservationService.GetUserRole(_httpContextAccessor);
             if (string.IsNullOrWhiteSpace(userRole)) return BadRequest();
             if (userRole == "Borrower")
             {
-                var borrowerId = _reservationService.GetUserId();
+                var borrowerId = _reservationService.GetUserId(_httpContextAccessor);
                 if (string.IsNullOrWhiteSpace(borrowerId))
                 {
                     return BadRequest();
@@ -89,7 +86,7 @@ namespace BMS.Controllers
         public async Task<IActionResult> AddReservation([FromBody] ReservationForCreation reservationForCreation)
         {
             var reservation = _mapper.Map<Reservation>(reservationForCreation);
-            var userId = _reservationService.GetUserId();
+            var userId = _reservationService.GetUserId(_httpContextAccessor);
             if (string.IsNullOrWhiteSpace(userId))
             {
                 return BadRequest();
@@ -116,10 +113,10 @@ namespace BMS.Controllers
             [FromRoute] Guid reservationId, 
             [FromBody] bool? isLoan)
         {
-            var role = _reservationService.GetUserRole();
+            var role = _reservationService.GetUserRole(_httpContextAccessor);
             if (role == "Borrower")
             {
-                var userId = _reservationService.GetUserId();
+                var userId = _reservationService.GetUserId(_httpContextAccessor);
                 if (userId == null)
                 {
                     return BadRequest();
