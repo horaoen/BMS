@@ -108,7 +108,7 @@ namespace BMS.Controllers
         /// <param name="isLoan"></param>
         /// <returns></returns>
         [HttpDelete("{reservationId:Guid}")]
-        [Authorize(Roles = "SuperAdmin, Admin")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> HandleReservation(
             [FromRoute] Guid reservationId, 
             [FromBody] bool? isLoan)
@@ -125,6 +125,7 @@ namespace BMS.Controllers
                 var reservationFromRepo = reservationsFromRepo.FirstOrDefault(reservation => reservation.Id == reservationId);
                 if (reservationFromRepo == null) return NotFound("没有这条预约信息");
                 _reservationRepository.DeleteReservation(reservationFromRepo);
+                await _reservationRepository.SaveAsync();
                 return Ok("取消预约成功");
             }
 
@@ -136,7 +137,7 @@ namespace BMS.Controllers
             var res = await _reservationService.HandleReservation(reservationId, isLoan.Value);
             if (res == false)
             {
-                return BadRequest("请检查reservationId是否正确");
+                return BadRequest("已经取消该预约，或该预约不存在");
             }
             else return Ok("预约成功");
         }

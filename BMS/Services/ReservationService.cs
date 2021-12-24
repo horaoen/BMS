@@ -56,6 +56,8 @@ namespace BMS.Services
             else
             {
                 _reservationRepository.DeleteReservation(reservationFromRepo);
+                await _reservationRepository.SaveAsync();
+                return false;
             }
 
             await _reservationRepository.SaveAsync();

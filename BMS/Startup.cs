@@ -4,11 +4,13 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using BMS.Database;
+using BMS.Helper;
 using BMS.Models.Entities;
 using BMS.Services;
 using BMS.Services.IRepository;
 using BMS.Services.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -18,6 +20,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
@@ -35,7 +38,7 @@ namespace BMS
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers(setupAction => { setupAction.ReturnHttpNotAcceptable = false; })
+            services.AddControllers(setupAction => { setupAction.ReturnHttpNotAcceptable = true; })
                 .AddNewtonsoftJson(setupAction =>
                     setupAction.SerializerSettings.ContractResolver =
                         new CamelCasePropertyNamesContractResolver())
@@ -58,15 +61,15 @@ namespace BMS
                             };
                         };
                     });
-
-            services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddDbContextPool<AppDbContext>(options =>
             {
                 options.UseMySql(Configuration["ConnectionStrings:MySql"],
                     new MySqlServerVersion(new Version(8, 0, 27)));
             });
-            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
+            }).AddEntityFrameworkStores<AppDbContext>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -132,12 +135,13 @@ namespace BMS
                 options.AddSecurityDefinition("bearerAuth", securityScheme);
                 options.AddSecurityRequirement(securityRequirement);
             });
-
+        
             #region DI
             services.AddTransient<IBookTitleRepository, BookTitleRepository>();
             services.AddTransient<ILoanRepository, LoanRepository>();
             services.AddTransient<IReservationRepository, ReservationRepository>();
             services.AddTransient<IBookTitleItemRepository, BookTitleItemRepository>();
+            services.AddSingleton<IAuthorizationMiddlewareResultHandler, MyAuthorizationMiddlewareResultHandler>();
             services.AddTransient<ReservationService>();
             services.AddTransient<LoanService>();
             services.AddTransient<BookTitleService>();
@@ -155,8 +159,8 @@ namespace BMS
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "BMS.Swagger");
             });
-            
             app.UseRouting();
+            
             app.UseAuthentication();
 
             app.UseAuthorization();
