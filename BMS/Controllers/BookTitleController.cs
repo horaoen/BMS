@@ -33,22 +33,22 @@ namespace BMS.Controllers
             _bookTitleService = bookTitleService;
         }
 
-        /// <summary>
-        /// 获取全部书目
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Authorize(AuthenticationSchemes = "Bearer")]
-        public async Task<IActionResult> GetBookTitles([FromQuery] BookTitleResourceParamaters? paramaters)
-        {
-            var bookTitlesFromRepo = await _bookTitleRepository.GetBookTitlesAsync(paramaters?.Keyword);
-            if (!bookTitlesFromRepo.Any())
-            {
-                return NotFound();
-            }
+        // / <summary>
+        // / 获取全部书目
+        // / </summary>
+        // / <returns></returns>
+        // [HttpGet]
+        // [Authorize(AuthenticationSchemes = "Bearer")]
+        // public async Task<IActionResult> GetBookTitles([FromQuery] BookTitleResourceParamaters? paramaters)
+        // {
+        //     var bookTitlesFromRepo = await _bookTitleRepository.GetBookTitlesAsync(paramaters?.Keyword);
+        //     if (!bookTitlesFromRepo.Any())
+        //     {
+        //         return NotFound();
+        //     }
 
-            return Ok(_mapper.Map<IEnumerable<BookTitleDto>>(bookTitlesFromRepo));
-        }
+        //     return Ok(_mapper.Map<IEnumerable<BookTitleDto>>(bookTitlesFromRepo));
+        // }
 
         /// <summary>
         /// 通过书目Id获取书目

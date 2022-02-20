@@ -1,0 +1,11 @@
+Info Message Template Auto Format enabled
+Info Adding target FileTarget(Name=allfile)
+Info Adding target FileTarget(Name=ownFile-web)
+Info Adding target NullTarget(Name=blackhole)
+Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=46, FilePath=/home/horaoen/CodeRepo/BMS/BMS/bin/Debug/net6.0/nlog.config
+Warn Unused target detected. Add a rule for this target to the configuration. TargetName: blackhole
+Info Configuration initialized.
+Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.0.329. Product version: 5.0.0-preview.3+54d8a1b4fa9c8f69ba119533e0c947d6efd6eb7a. GlobalAssemblyCache: False
+Info Shutdown() called. Logger closing...
+Info Closing old configuration.
+Info Logger has been closed down.
